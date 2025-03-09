@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio_mobile/constants.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -7,8 +8,6 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 48),
-
         CircleAvatar(
           radius: 64,
           backgroundImage: AssetImage('assets/images/victorvaz.jpg'),
@@ -19,13 +18,13 @@ class Header extends StatelessWidget {
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Constants.fontColor,
           ),
         ),
 
         Text(
           'Software Developer',
-          style: TextStyle(fontSize: 18, color: Colors.white70),
+          style: TextStyle(fontSize: 18, color: Constants.secundaryFontColor),
         ),
       ],
     );
