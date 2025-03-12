@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
 
-class PersonalProfile extends StatelessWidget {
-  const PersonalProfile({super.key});
+class BiographyWidget extends StatelessWidget {
+  const BiographyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

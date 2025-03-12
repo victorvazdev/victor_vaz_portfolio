@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
-import 'package:my_portfolio_mobile/widgets/contact.dart';
-import 'package:my_portfolio_mobile/widgets/personal_informations.dart';
-import 'package:my_portfolio_mobile/widgets/personal_profile.dart';
-import 'package:my_portfolio_mobile/widgets/stylized_button.dart';
+import 'package:my_portfolio_mobile/widgets/contact_widget.dart';
+import 'package:my_portfolio_mobile/widgets/who_i_am_widget.dart';
+import 'package:my_portfolio_mobile/widgets/biography_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              Header(),
+              WhoIAmWidget(),
 
               SizedBox(height: 16),
 
@@ -38,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      PersonalProfile(),
+                      BiographyWidget(),
 
                       Divider(
                         height: 0,
@@ -47,18 +46,10 @@ class HomeScreen extends StatelessWidget {
                         endIndent: 20,
                         color: Constants.darkBackground,
                       ),
-                      Contact(),
+                      ContactWidget(),
                     ],
                   ),
                 ),
-              ),
-
-              Row(
-                children: [
-                  StylizedButton(function: () {}, text: 'Formação'),
-                  SizedBox(width: 12),
-                  StylizedButton(function: () {}, text: 'Certificados'),
-                ],
               ),
             ],
           ),

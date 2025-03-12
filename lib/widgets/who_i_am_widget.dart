@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
 
-class Header extends StatelessWidget {
-  const Header({super.key});
+class WhoIAmWidget extends StatelessWidget {
+  const WhoIAmWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
