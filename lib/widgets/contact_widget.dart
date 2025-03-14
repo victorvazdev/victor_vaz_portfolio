@@ -2,8 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
 import 'package:my_portfolio_mobile/widgets/email_link_widget.dart';
 
-class ContactWidget extends StatelessWidget {
+class ContactWidget extends StatefulWidget {
   const ContactWidget({super.key});
+
+  @override
+  State<ContactWidget> createState() => _ContactWidgetState();
+}
+
+class _ContactWidgetState extends State<ContactWidget> {
+  bool isShowingEmail = false;
+  bool isShowingPhone = false;
+
+  void _handleEmailWidgetChanged(bool newValue) {
+    setState(() {
+      isShowingEmail = newValue;
+    });
+  }
+
+  void _handlePhoneWidgetChanged(bool newValue) {
+    setState(() {
+      isShowingPhone = newValue;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +49,17 @@ class ContactWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  _BuildEmailContact(),
+                  _BuildEmailContact(
+                    isShowingEmail: isShowingEmail,
+                    onChanged: _handleEmailWidgetChanged,
+                  ),
 
                   SizedBox(height: 8),
 
-                  _BuildPhoneContact(),
+                  _BuildPhoneContact(
+                    isShowingPhone: isShowingPhone,
+                    onChanged: _handlePhoneWidgetChanged,
+                  ),
 
                   SizedBox(height: 8),
 
@@ -121,6 +147,18 @@ class _BuildLinkedinContact extends StatelessWidget {
 }
 
 class _BuildPhoneContact extends StatelessWidget {
+  const _BuildPhoneContact({
+    this.isShowingPhone = false,
+    required this.onChanged,
+  });
+
+  final bool isShowingPhone;
+  final ValueChanged<bool> onChanged;
+
+  void _handleTap() {
+    onChanged(!isShowingPhone);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -134,16 +172,60 @@ class _BuildPhoneContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        Text(
-          '+55 (46) 99112-1927',
-          style: TextStyle(color: Constants.textFontColor),
-        ),
+        (isShowingPhone)
+            ? Row(
+              children: [
+                Text(
+                  '+55 (46) 99112-1927',
+                  style: TextStyle(color: Constants.textFontColor),
+                ),
+                SizedBox(
+                  width: 30,
+                  height: 16,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                    iconSize: 16,
+                    onPressed: _handleTap,
+                    icon: Icon(Icons.remove_red_eye),
+                  ),
+                ),
+              ],
+            )
+            : Row(
+              children: [
+                Text('Telefone oculto'),
+                SizedBox(
+                  width: 30,
+                  height: 16,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                    iconSize: 16,
+                    onPressed: _handleTap,
+                    icon: Icon(Icons.remove_red_eye_outlined),
+                  ),
+                ),
+              ],
+            ),
       ],
     );
   }
 }
 
 class _BuildEmailContact extends StatelessWidget {
+  const _BuildEmailContact({
+    this.isShowingEmail = false,
+    required this.onChanged,
+  });
+
+  final bool isShowingEmail;
+  final ValueChanged<bool> onChanged;
+
+  void _handleTap() {
+    onChanged(!isShowingEmail);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -157,11 +239,43 @@ class _BuildEmailContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        EmailLinkWidget(
-          email: 'contato@victorvaz.dev.br',
-          subject: 'Olá, Victor',
-          body: 'Vim através de seu portfólio para falar sobre...',
-        ),
+        (isShowingEmail)
+            ? Row(
+              children: [
+                EmailLinkWidget(
+                  email: 'contato@victorvaz.dev.br',
+                  subject: 'Olá, Victor',
+                  body: 'Vim através de seu portfólio para falar sobre...',
+                ),
+                SizedBox(
+                  width: 30,
+                  height: 16,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                    iconSize: 16,
+                    onPressed: _handleTap,
+                    icon: Icon(Icons.remove_red_eye),
+                  ),
+                ),
+              ],
+            )
+            : Row(
+              children: [
+                Text('E-mail oculto'),
+                SizedBox(
+                  width: 30,
+                  height: 16,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints(),
+                    iconSize: 16,
+                    onPressed: _handleTap,
+                    icon: Icon(Icons.remove_red_eye_outlined),
+                  ),
+                ),
+              ],
+            ),
       ],
     );
   }
