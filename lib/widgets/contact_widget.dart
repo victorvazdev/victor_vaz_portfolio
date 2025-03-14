@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
+import 'package:my_portfolio_mobile/widgets/email_link_widget.dart';
 
 class ContactWidget extends StatelessWidget {
   const ContactWidget({super.key});
@@ -156,9 +157,10 @@ class _BuildEmailContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        Text(
-          'contato@victorvaz.dev.br',
-          style: TextStyle(color: Constants.textFontColor),
+        EmailLinkWidget(
+          email: 'contato@victorvaz.dev.br',
+          subject: 'Olá, Victor',
+          body: 'Vim através de seu portfólio para falar sobre...',
         ),
       ],
     );
