@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_mobile/constants.dart';
 import 'package:my_portfolio_mobile/widgets/email_link_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactWidget extends StatefulWidget {
   const ContactWidget({super.key});
@@ -159,6 +160,16 @@ class _BuildPhoneContact extends StatelessWidget {
     onChanged(!isShowingPhone);
   }
 
+  void _launchPhone() async {
+    final Uri phoneUri = Uri(scheme: 'tel', path: '+5546991121927');
+
+    if (await canLaunchUrl(phoneUri)) {
+      await launchUrl(phoneUri);
+    } else {
+      throw Exception('Could not launch $phoneUri');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -175,9 +186,12 @@ class _BuildPhoneContact extends StatelessWidget {
         (isShowingPhone)
             ? Row(
               children: [
-                Text(
-                  '+55 (46) 99112-1927',
-                  style: TextStyle(color: Constants.textFontColor),
+                GestureDetector(
+                  onTap: _launchPhone,
+                  child: Text(
+                    '+55 (46) 99112-1927',
+                    style: TextStyle(color: Constants.textFontColor),
+                  ),
                 ),
                 SizedBox(
                   width: 30,
