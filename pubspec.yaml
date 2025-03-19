@@ -1,4 +1,4 @@
-name: my_portfolio_mobile
+name: victor_vaz_portfolio
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -22,3 +22,6 @@ flutter:
     - assets/images/victorvaz.jpg
     - assets/images/github-logo.png
     - assets/images/linkedin-logo.png
+    - assets/images/graduation.png
+    - assets/images/suitcase.png
+    - assets/images/certification.png

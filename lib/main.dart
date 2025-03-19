@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio_mobile/screens/home_screen.dart';
+import 'package:victor_vaz_portfolio/screens/main_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen());
+    return MaterialApp(title: 'Victor Vaz Portfolio', home: MainScreen());
   }
 }

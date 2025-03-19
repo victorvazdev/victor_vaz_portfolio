@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio_mobile/constants.dart';
+import 'package:victor_vaz_portfolio/constants.dart';
 
 class WhoIAmWidget extends StatelessWidget {
   const WhoIAmWidget({super.key});

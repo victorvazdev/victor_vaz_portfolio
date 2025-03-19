@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio_mobile/constants.dart';
-import 'package:my_portfolio_mobile/widgets/email_link_widget.dart';
+import 'package:victor_vaz_portfolio/constants.dart';
+import 'package:victor_vaz_portfolio/widgets/email_link_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactWidget extends StatefulWidget {
@@ -206,21 +206,24 @@ class _BuildPhoneContact extends StatelessWidget {
                 ),
               ],
             )
-            : Row(
-              children: [
-                Text('Telefone oculto'),
-                SizedBox(
-                  width: 30,
-                  height: 16,
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: BoxConstraints(),
-                    iconSize: 16,
-                    onPressed: _handleTap,
-                    icon: Icon(Icons.remove_red_eye_outlined),
+            : GestureDetector(
+              onTap: _handleTap,
+              child: Row(
+                children: [
+                  Text('Telefone oculto'),
+                  SizedBox(
+                    width: 30,
+                    height: 16,
+                    child: IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints: BoxConstraints(),
+                      iconSize: 16,
+                      onPressed: _handleTap,
+                      icon: Icon(Icons.remove_red_eye_outlined),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
       ],
     );
@@ -274,21 +277,24 @@ class _BuildEmailContact extends StatelessWidget {
                 ),
               ],
             )
-            : Row(
-              children: [
-                Text('E-mail oculto'),
-                SizedBox(
-                  width: 30,
-                  height: 16,
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: BoxConstraints(),
-                    iconSize: 16,
-                    onPressed: _handleTap,
-                    icon: Icon(Icons.remove_red_eye_outlined),
+            : GestureDetector(
+              onTap: _handleTap,
+              child: Row(
+                children: [
+                  Text('E-mail oculto'),
+                  SizedBox(
+                    width: 30,
+                    height: 16,
+                    child: IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints: BoxConstraints(),
+                      iconSize: 16,
+                      onPressed: _handleTap,
+                      icon: Icon(Icons.remove_red_eye_outlined),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
       ],
     );
