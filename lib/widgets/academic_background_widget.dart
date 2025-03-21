@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/constants.dart';
 
@@ -6,6 +7,8 @@ class AcademicBackgroundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
@@ -24,15 +27,35 @@ class AcademicBackgroundWidget extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
 
-            _BuildGraduation(
-              name: 'Sistemas de Informação',
-              period: 'UNA - de fevereiro de 2022 até o momento.',
-            ),
+            kIsWeb && width > 700
+                ? Row(
+                  children: [
+                    _BuildGraduation(
+                      name: 'Sistemas de Informação',
+                      period: 'UNA - de fevereiro de 2022 até o momento.',
+                    ),
 
-            _BuildGraduation(
-              name: 'Engenharia da Computação',
-              period: 'UTFPR - de fevereiro de 2019 até Julho de 2020.',
-            ),
+                    SizedBox(width: 32),
+
+                    _BuildGraduation(
+                      name: 'Engenharia da Computação',
+                      period: 'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                    ),
+                  ],
+                )
+                : Column(
+                  children: [
+                    _BuildGraduation(
+                      name: 'Sistemas de Informação',
+                      period: 'UNA - de fevereiro de 2022 até o momento.',
+                    ),
+
+                    _BuildGraduation(
+                      name: 'Engenharia da Computação',
+                      period: 'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                    ),
+                  ],
+                ),
           ],
         ),
       ),
@@ -54,27 +77,25 @@ class _BuildGraduation extends StatelessWidget {
         children: [
           Image.asset('assets/images/graduation.png', height: 32),
           SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: TextStyle(
-                    color: Constants.textFontColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  softWrap: true,
-                  overflow: TextOverflow.visible,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: TextStyle(
+                  color: Constants.textFontColor,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  period,
-                  style: TextStyle(color: Constants.textFontColor, fontSize: 9),
-                  softWrap: true,
-                  overflow: TextOverflow.visible,
-                ),
-              ],
-            ),
+                softWrap: true,
+                overflow: TextOverflow.visible,
+              ),
+              Text(
+                period,
+                style: TextStyle(color: Constants.textFontColor, fontSize: 9),
+                softWrap: true,
+                overflow: TextOverflow.visible,
+              ),
+            ],
           ),
         ],
       ),

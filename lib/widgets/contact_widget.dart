@@ -139,7 +139,7 @@ class _BuildLinkedinContact extends StatelessWidget {
         SizedBox(width: 8),
 
         Text(
-          '@dev-victorvaz',
+          'in/victorvazdev',
           style: TextStyle(color: Constants.textFontColor),
         ),
       ],

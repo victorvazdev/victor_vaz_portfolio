@@ -6,5 +6,5 @@ class Constants {
   static Color? textFontColor = Color(0xFF262e3b);
   static Color? darkBackground = Color(0xFF343f51);
   static Color? silverBackground = Color(0xFFFAFAFA);
-  // static Color? navigationBackground = Color(0xFFF1F1F1);
+  static Color? navigationBackground = Color(0xFFF1F1F1);
 }
