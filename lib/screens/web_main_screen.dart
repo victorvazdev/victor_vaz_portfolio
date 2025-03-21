@@ -203,7 +203,7 @@ class _WebMainScreenState extends State<WebMainScreen> {
                 ),
 
                 SizedBox(height: 32),
-                Center(child: Text('© 2025 por Victor Vaz')),
+                Center(child: SelectableText('© 2025 por Victor Vaz')),
                 SizedBox(height: 16),
               ],
             ),

@@ -36,7 +36,7 @@ class _ContactWidgetState extends State<ContactWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               'Contato',
               style: TextStyle(
                 fontSize: 16,
@@ -84,6 +84,13 @@ class _ContactWidgetState extends State<ContactWidget> {
 }
 
 class _BuildLocalContact extends StatelessWidget {
+  Future<void> _launchWebsite() async {
+    final Uri url = Uri.parse('https://maps.app.goo.gl/xTcMRQEX93AVQpa5A');
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -97,9 +104,12 @@ class _BuildLocalContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        Text(
-          'Três Rios, Rio de Janeiro',
-          style: TextStyle(color: Constants.textFontColor),
+        InkWell(
+          onTap: _launchWebsite,
+          child: Text(
+            'Três Rios, Rio de Janeiro',
+            style: TextStyle(color: Constants.textFontColor),
+          ),
         ),
       ],
     );
@@ -107,6 +117,13 @@ class _BuildLocalContact extends StatelessWidget {
 }
 
 class _BuildGithubContact extends StatelessWidget {
+  Future<void> _launchWebsite() async {
+    final Uri url = Uri.parse('https://github.com/victorvazdev');
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -119,13 +136,26 @@ class _BuildGithubContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        Text('victorvazdev', style: TextStyle(color: Constants.textFontColor)),
+        InkWell(
+          onTap: _launchWebsite,
+          child: Text(
+            'victorvazdev',
+            style: TextStyle(color: Constants.textFontColor),
+          ),
+        ),
       ],
     );
   }
 }
 
 class _BuildLinkedinContact extends StatelessWidget {
+  Future<void> _launchWebsite() async {
+    final Uri url = Uri.parse('https://www.linkedin.com/in/victorvazdev/');
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -138,9 +168,12 @@ class _BuildLinkedinContact extends StatelessWidget {
 
         SizedBox(width: 8),
 
-        Text(
-          'in/victorvazdev',
-          style: TextStyle(color: Constants.textFontColor),
+        InkWell(
+          onTap: _launchWebsite,
+          child: Text(
+            'in/victorvazdev',
+            style: TextStyle(color: Constants.textFontColor),
+          ),
         ),
       ],
     );
@@ -186,7 +219,7 @@ class _BuildPhoneContact extends StatelessWidget {
         (isShowingPhone)
             ? Row(
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: _launchPhone,
                   child: Text(
                     '+55 (46) 99112-1927',
@@ -206,7 +239,7 @@ class _BuildPhoneContact extends StatelessWidget {
                 ),
               ],
             )
-            : GestureDetector(
+            : InkWell(
               onTap: _handleTap,
               child: Row(
                 children: [
@@ -277,7 +310,7 @@ class _BuildEmailContact extends StatelessWidget {
                 ),
               ],
             )
-            : GestureDetector(
+            : InkWell(
               onTap: _handleTap,
               child: Row(
                 children: [

@@ -30,7 +30,7 @@ class WhoIAmWidget extends StatelessWidget {
                   backgroundImage: AssetImage('assets/images/victorvaz.jpg'),
                 ),
 
-                Text(
+                SelectableText(
                   'Victor Vaz',
                   style: TextStyle(
                     fontSize: 24,
@@ -39,7 +39,7 @@ class WhoIAmWidget extends StatelessWidget {
                   ),
                 ),
 
-                Text(
+                SelectableText(
                   'Software Developer',
                   style: TextStyle(
                     fontSize: 18,

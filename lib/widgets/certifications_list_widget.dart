@@ -106,11 +106,9 @@ Widget _buildCertification(String name) {
             Image.asset('assets/images/certification.png', width: 16),
             const SizedBox(width: 8.0),
             Expanded(
-              child: Text(
+              child: SelectableText(
                 name,
                 style: TextStyle(color: Constants.textFontColor),
-                softWrap: true,
-                overflow: TextOverflow.visible,
               ),
             ),
           ],

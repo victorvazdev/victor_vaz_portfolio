@@ -24,7 +24,7 @@ class BiographyWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      SelectableText(
                         'Victor Vaz',
                         style: TextStyle(
                           fontSize: 24,
@@ -33,7 +33,7 @@ class BiographyWidget extends StatelessWidget {
                         ),
                       ),
 
-                      Text(
+                      SelectableText(
                         'Software Developer',
                         style: TextStyle(
                           fontSize: 18,
@@ -43,7 +43,7 @@ class BiographyWidget extends StatelessWidget {
                     ],
                   ),
                 )
-                : Text(
+                : SelectableText(
                   'Biografia',
                   style: TextStyle(
                     fontSize: 16,
@@ -55,11 +55,9 @@ class BiographyWidget extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
+              child: SelectableText(
                 'Estudante de Sistemas de Informação e Desenvolvimento Mobile, apaixonado por tecnologia e aprendizado contínuo. Busco constantemente explorar novas tecnologias e aprimorar meu conhecimento em soluções consolidadas no mercado. Com uma mentalidade inovadora e foco em eficiência, estou sempre em busca de desafios que me permitam evoluir e contribuir significativamente para os projetos em que atuo.',
                 style: TextStyle(color: Constants.textFontColor),
-                softWrap: true,
-                overflow: TextOverflow.visible,
               ),
             ),
           ],

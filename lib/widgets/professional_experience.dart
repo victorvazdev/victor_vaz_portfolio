@@ -71,23 +71,19 @@ class _BuildExperience extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    SelectableText(
                       name,
                       style: TextStyle(
                         color: Constants.textFontColor,
                         fontWeight: FontWeight.bold,
                       ),
-                      softWrap: true,
-                      overflow: TextOverflow.visible,
                     ),
-                    Text(
+                    SelectableText(
                       period,
                       style: TextStyle(
                         color: Constants.textFontColor,
                         fontSize: 9,
                       ),
-                      softWrap: true,
-                      overflow: TextOverflow.visible,
                     ),
                   ],
                 ),
@@ -95,11 +91,9 @@ class _BuildExperience extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
-          Text(
+          SelectableText(
             description,
             style: TextStyle(color: Constants.textFontColor),
-            softWrap: true,
-            overflow: TextOverflow.visible,
           ),
         ],
       ),

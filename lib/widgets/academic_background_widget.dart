@@ -17,7 +17,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               'Formação Acadêmica',
               style: TextStyle(
                 fontSize: 16,
@@ -80,20 +80,16 @@ class _BuildGraduation extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              SelectableText(
                 name,
                 style: TextStyle(
                   color: Constants.textFontColor,
                   fontWeight: FontWeight.bold,
                 ),
-                softWrap: true,
-                overflow: TextOverflow.visible,
               ),
-              Text(
+              SelectableText(
                 period,
                 style: TextStyle(color: Constants.textFontColor, fontSize: 9),
-                softWrap: true,
-                overflow: TextOverflow.visible,
               ),
             ],
           ),
