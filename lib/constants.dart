@@ -12,8 +12,10 @@ class Constants {
     primaryColor: lightTextColor,
     scaffoldBackgroundColor: lightBackground,
     appBarTheme: AppBarTheme(
-      backgroundColor: lightContrastColor,
-      foregroundColor: Colors.white,
+      backgroundColor: lightBackground,
+      foregroundColor: lightBackground,
+      surfaceTintColor: lightBackground,
+      shadowColor: Colors.black,
       elevation: 0,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -40,14 +42,24 @@ class Constants {
         fontSize: 14,
         fontWeight: FontWeight.bold,
       ),
-      headlineMedium: TextStyle(fontSize: 16, color: Colors.white),
+      headlineMedium: TextStyle(fontSize: 16, color: lightPrimaryColor),
     ),
     iconTheme: IconThemeData(color: lightTextColor),
     cardColor: Colors.white,
     dividerColor: lightContrastColor,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        overlayColor: WidgetStatePropertyAll(lightTextColor),
+        overlayColor: WidgetStatePropertyAll(Colors.transparent),
+        foregroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return lightPrimaryColor;
+          }
+          return Colors.black54;
+        }),
+        textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
         elevation: WidgetStatePropertyAll(0),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.zero),
@@ -62,8 +74,10 @@ class Constants {
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Color(0xFF121212),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.black87,
-      foregroundColor: Colors.white,
+      backgroundColor: Color(0xFF121212),
+      foregroundColor: Color(0xFF121212),
+      surfaceTintColor: Color(0xFF121212),
+      shadowColor: Colors.black54,
       elevation: 0,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -97,7 +111,16 @@ class Constants {
     dividerColor: lightContrastColor,
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        overlayColor: WidgetStatePropertyAll(Colors.white24),
+        overlayColor: WidgetStatePropertyAll(Colors.transparent),
+        foregroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return Colors.white;
+          }
+          return Colors.white60;
+        }),
         elevation: WidgetStatePropertyAll(0),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.zero),

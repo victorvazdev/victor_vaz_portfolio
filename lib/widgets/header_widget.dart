@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class WhoIAmWidget extends StatelessWidget {
-  const WhoIAmWidget({super.key});
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,14 +10,14 @@ class WhoIAmWidget extends StatelessWidget {
 
     return Column(
       children: [
-        kIsWeb && width > 600
+        kIsWeb && width > 750
             ? Column(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image.asset(
                     'assets/images/victorvaz.jpg',
-                    height: 128,
+                    height: 256,
                   ),
                 ),
               ],

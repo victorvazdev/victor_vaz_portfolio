@@ -21,10 +21,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/victorvaz.jpg
-    - assets/images/github-logo.png
     - assets/images/github-logo.svg
-    - assets/images/linkedin-logo.png
     - assets/images/linkedin-logo.svg
-    - assets/images/graduation.png
-    - assets/images/suitcase.png
-    - assets/images/certification.png

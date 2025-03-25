@@ -70,49 +70,59 @@ class CertificationsListWidget extends StatelessWidget {
       );
     }
 
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Certificações',
-              style: Theme.of(context).textTheme.titleSmall,
-              textAlign: TextAlign.left,
-            ),
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment:
+            kIsWeb && width > 700
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Certificações',
+            style:
+                kIsWeb && width > 700
+                    ? TextStyle(
+                      color: Theme.of(context).textTheme.titleSmall!.color,
+                      fontSize: 28,
+                      fontWeight:
+                          Theme.of(context).textTheme.titleSmall!.fontWeight,
+                    )
+                    : Theme.of(context).textTheme.titleSmall,
+          ),
 
-            SizedBox(height: 8),
+          SizedBox(height: 8),
+          kIsWeb && width > 700
+              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+              : SizedBox.shrink(),
 
-            kIsWeb && width > 750
-                ? GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 550,
-                    crossAxisSpacing: 16.0,
-                    mainAxisSpacing: 16.0,
-                    childAspectRatio: 4.5,
-                  ),
-                  itemCount: certifications.length,
-                  itemBuilder:
-                      (context, index) =>
-                          buildCertification(certifications[index]),
-                )
-                : ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: certifications.length,
-                  itemBuilder:
-                      (context, index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 12.0),
-                        child: buildCertification(certifications[index]),
-                      ),
+          kIsWeb && width > 750
+              ? GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 550,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  childAspectRatio: 4.5,
                 ),
-          ],
-        ),
+                itemCount: certifications.length,
+                itemBuilder:
+                    (context, index) =>
+                        buildCertification(certifications[index]),
+              )
+              : ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: certifications.length,
+                itemBuilder:
+                    (context, index) => Padding(
+                      padding: const EdgeInsets.only(bottom: 12.0),
+                      child: buildCertification(certifications[index]),
+                    ),
+              ),
+        ],
       ),
     );
   }

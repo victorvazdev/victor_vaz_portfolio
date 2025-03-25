@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/widgets/certifications_list_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/who_i_am_widget.dart';
+import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
 
 class CertificationsScreen extends StatelessWidget {
   const CertificationsScreen({super.key});
@@ -15,7 +15,7 @@ class CertificationsScreen extends StatelessWidget {
             children: [
               kIsWeb ? SizedBox(height: 16) : SizedBox.shrink(),
 
-              WhoIAmWidget(),
+              HeaderWidget(),
 
               SizedBox(height: 16),
 
