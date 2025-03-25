@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 
 class ProfessionalExperience extends StatelessWidget {
   const ProfessionalExperience({super.key});
@@ -16,11 +15,7 @@ class ProfessionalExperience extends StatelessWidget {
           children: [
             Text(
               'Experiência Profissional',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Constants.textFontColor,
-              ),
+              style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.left,
             ),
 
@@ -73,17 +68,11 @@ class _BuildExperience extends StatelessWidget {
                   children: [
                     SelectableText(
                       name,
-                      style: TextStyle(
-                        color: Constants.textFontColor,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                     SelectableText(
                       period,
-                      style: TextStyle(
-                        color: Constants.textFontColor,
-                        fontSize: 9,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -93,7 +82,7 @@ class _BuildExperience extends StatelessWidget {
           SizedBox(height: 5),
           SelectableText(
             description,
-            style: TextStyle(color: Constants.textFontColor),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 
 class WhoIAmWidget extends StatelessWidget {
   const WhoIAmWidget({super.key});
@@ -32,19 +31,12 @@ class WhoIAmWidget extends StatelessWidget {
 
                 SelectableText(
                   'Victor Vaz',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Constants.fontColor,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
 
                 SelectableText(
                   'Software Developer',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Constants.secundaryFontColor,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ],
             ),

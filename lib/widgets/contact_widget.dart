@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 import 'package:victor_vaz_portfolio/widgets/email_link_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -38,11 +37,7 @@ class _ContactWidgetState extends State<ContactWidget> {
           children: [
             SelectableText(
               'Contato',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Constants.textFontColor,
-              ),
+              style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.left,
             ),
 
@@ -97,7 +92,7 @@ class _BuildLocalContact extends StatelessWidget {
       children: [
         Icon(
           Icons.place,
-          color: Constants.textFontColor,
+          color: Theme.of(context).iconTheme.color,
           size: 24,
           semanticLabel: 'Local de habitação',
         ),
@@ -108,7 +103,7 @@ class _BuildLocalContact extends StatelessWidget {
           onTap: _launchWebsite,
           child: Text(
             'Três Rios, Rio de Janeiro',
-            style: TextStyle(color: Constants.textFontColor),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],
@@ -140,7 +135,7 @@ class _BuildGithubContact extends StatelessWidget {
           onTap: _launchWebsite,
           child: Text(
             'victorvazdev',
-            style: TextStyle(color: Constants.textFontColor),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],
@@ -172,7 +167,7 @@ class _BuildLinkedinContact extends StatelessWidget {
           onTap: _launchWebsite,
           child: Text(
             'in/victorvazdev',
-            style: TextStyle(color: Constants.textFontColor),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],
@@ -209,7 +204,7 @@ class _BuildPhoneContact extends StatelessWidget {
       children: [
         Icon(
           Icons.phone,
-          color: Constants.textFontColor,
+          color: Theme.of(context).iconTheme.color,
           size: 24,
           semanticLabel: 'Contato por telefone',
         ),
@@ -223,7 +218,7 @@ class _BuildPhoneContact extends StatelessWidget {
                   onTap: _launchPhone,
                   child: Text(
                     '+55 (46) 99112-1927',
-                    style: TextStyle(color: Constants.textFontColor),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 SizedBox(
@@ -234,7 +229,10 @@ class _BuildPhoneContact extends StatelessWidget {
                     constraints: BoxConstraints(),
                     iconSize: 16,
                     onPressed: _handleTap,
-                    icon: Icon(Icons.remove_red_eye),
+                    icon: Icon(
+                      Icons.remove_red_eye,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
                   ),
                 ),
               ],
@@ -243,7 +241,10 @@ class _BuildPhoneContact extends StatelessWidget {
               onTap: _handleTap,
               child: Row(
                 children: [
-                  Text('Telefone oculto'),
+                  Text(
+                    'Telefone oculto',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   SizedBox(
                     width: 30,
                     height: 16,
@@ -252,7 +253,10 @@ class _BuildPhoneContact extends StatelessWidget {
                       constraints: BoxConstraints(),
                       iconSize: 16,
                       onPressed: _handleTap,
-                      icon: Icon(Icons.remove_red_eye_outlined),
+                      icon: Icon(
+                        Icons.remove_red_eye_outlined,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
                     ),
                   ),
                 ],
@@ -282,7 +286,7 @@ class _BuildEmailContact extends StatelessWidget {
       children: [
         Icon(
           Icons.email,
-          color: Constants.textFontColor,
+          color: Theme.of(context).iconTheme.color,
           size: 24,
           semanticLabel: 'Contato por e-mail',
         ),
@@ -305,7 +309,10 @@ class _BuildEmailContact extends StatelessWidget {
                     constraints: BoxConstraints(),
                     iconSize: 16,
                     onPressed: _handleTap,
-                    icon: Icon(Icons.remove_red_eye),
+                    icon: Icon(
+                      Icons.remove_red_eye,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
                   ),
                 ),
               ],
@@ -314,7 +321,10 @@ class _BuildEmailContact extends StatelessWidget {
               onTap: _handleTap,
               child: Row(
                 children: [
-                  Text('E-mail oculto'),
+                  Text(
+                    'E-mail oculto',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   SizedBox(
                     width: 30,
                     height: 16,
@@ -323,7 +333,10 @@ class _BuildEmailContact extends StatelessWidget {
                       constraints: BoxConstraints(),
                       iconSize: 16,
                       onPressed: _handleTap,
-                      icon: Icon(Icons.remove_red_eye_outlined),
+                      icon: Icon(
+                        Icons.remove_red_eye_outlined,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
                     ),
                   ),
                 ],

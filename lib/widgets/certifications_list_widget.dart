@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 
 class CertificationsListWidget extends StatelessWidget {
   const CertificationsListWidget({super.key});
@@ -32,6 +31,41 @@ class CertificationsListWidget extends StatelessWidget {
       'Curso de robótica e programação em Arduíno básico',
     ];
 
+    Widget buildCertification(String name) {
+      return Container(
+        padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Image.asset('assets/images/certification.png', width: 16),
+                const SizedBox(width: 8.0),
+                Expanded(
+                  child: SelectableText(
+                    name,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
@@ -42,11 +76,7 @@ class CertificationsListWidget extends StatelessWidget {
           children: [
             Text(
               'Certificações',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Constants.textFontColor,
-              ),
+              style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.left,
             ),
 
@@ -65,7 +95,7 @@ class CertificationsListWidget extends StatelessWidget {
                   itemCount: certifications.length,
                   itemBuilder:
                       (context, index) =>
-                          _buildCertification(certifications[index]),
+                          buildCertification(certifications[index]),
                 )
                 : ListView.builder(
                   shrinkWrap: true,
@@ -74,7 +104,7 @@ class CertificationsListWidget extends StatelessWidget {
                   itemBuilder:
                       (context, index) => Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: _buildCertification(certifications[index]),
+                        child: buildCertification(certifications[index]),
                       ),
                 ),
           ],
@@ -82,35 +112,4 @@ class CertificationsListWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildCertification(String name) {
-  return Container(
-    padding: const EdgeInsets.all(8.0),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(8.0),
-      boxShadow: [
-        BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 2)),
-      ],
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Image.asset('assets/images/certification.png', width: 16),
-            const SizedBox(width: 8.0),
-            Expanded(
-              child: SelectableText(
-                name,
-                style: TextStyle(color: Constants.textFontColor),
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
 }

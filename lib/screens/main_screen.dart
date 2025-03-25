@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 import 'package:victor_vaz_portfolio/screens/about_screen.dart';
 import 'package:victor_vaz_portfolio/screens/certifications_screen.dart';
 import 'package:victor_vaz_portfolio/screens/home_screen.dart';
@@ -29,23 +28,18 @@ class MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Constants.silverBackground,
       body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: SafeArea(
-        child: BottomNavigationBar(
-          selectedItemColor: Constants.fontColor,
-          backgroundColor: Colors.white,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-            BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Sobre'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail),
-              label: 'Certificações',
-            ),
-          ],
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Sobre'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.contact_mail),
+            label: 'Certificações',
+          ),
+        ],
       ),
     );
   }

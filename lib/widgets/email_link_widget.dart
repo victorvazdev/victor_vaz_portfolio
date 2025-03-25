@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EmailLinkWidget extends StatelessWidget {
@@ -33,7 +32,7 @@ class EmailLinkWidget extends StatelessWidget {
       onTap: _launchEmail,
       child: Text(
         'contato@victorvaz.dev.br',
-        style: TextStyle(color: Constants.textFontColor),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }

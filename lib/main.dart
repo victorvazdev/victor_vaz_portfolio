@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/constants.dart';
 import 'package:victor_vaz_portfolio/screens/main_screen.dart';
 import 'package:victor_vaz_portfolio/screens/web_main_screen.dart';
 
@@ -14,8 +15,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Victor Vaz',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: Constants.lightTheme,
+      darkTheme: Constants.darkTheme,
       themeMode: ThemeMode.system,
       home: kIsWeb ? WebMainScreen() : MainScreen(),
     );

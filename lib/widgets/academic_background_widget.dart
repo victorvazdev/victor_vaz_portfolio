@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 
 class AcademicBackgroundWidget extends StatelessWidget {
   const AcademicBackgroundWidget({super.key});
@@ -17,13 +16,9 @@ class AcademicBackgroundWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SelectableText(
+            Text(
               'Formação Acadêmica',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Constants.textFontColor,
-              ),
+              style: Theme.of(context).textTheme.titleSmall,
               textAlign: TextAlign.left,
             ),
 
@@ -82,14 +77,11 @@ class _BuildGraduation extends StatelessWidget {
             children: [
               SelectableText(
                 name,
-                style: TextStyle(
-                  color: Constants.textFontColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.titleSmall,
               ),
               SelectableText(
                 period,
-                style: TextStyle(color: Constants.textFontColor, fontSize: 9),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),
