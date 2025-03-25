@@ -59,7 +59,7 @@ class _WebMainScreenState extends State<WebMainScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return width < 600
+    return width < 700
         ? MainScreen()
         : Scaffold(
           backgroundColor: Constants.silverBackground,

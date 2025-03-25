@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/widgets/biography_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/contact_widget.dart';
@@ -14,6 +15,8 @@ class HomeScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              kIsWeb ? SizedBox(height: 16) : SizedBox.shrink(),
+
               WhoIAmWidget(),
 
               SizedBox(height: 16),

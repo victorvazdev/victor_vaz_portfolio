@@ -52,7 +52,7 @@ class CertificationsListWidget extends StatelessWidget {
 
             SizedBox(height: 8),
 
-            kIsWeb && width > 600
+            kIsWeb && width > 750
                 ? GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
@@ -60,25 +60,22 @@ class CertificationsListWidget extends StatelessWidget {
                     maxCrossAxisExtent: 550,
                     crossAxisSpacing: 16.0,
                     mainAxisSpacing: 16.0,
-                    childAspectRatio: 3.5,
+                    childAspectRatio: 4.5,
                   ),
                   itemCount: certifications.length,
                   itemBuilder:
                       (context, index) =>
                           _buildCertification(certifications[index]),
                 )
-                : GridView.builder(
+                : ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 300,
-                    crossAxisSpacing: 16.0,
-                    mainAxisSpacing: 16.0,
-                  ),
                   itemCount: certifications.length,
                   itemBuilder:
-                      (context, index) =>
-                          _buildCertification(certifications[index]),
+                      (context, index) => Padding(
+                        padding: const EdgeInsets.only(bottom: 12.0),
+                        child: _buildCertification(certifications[index]),
+                      ),
                 ),
           ],
         ),

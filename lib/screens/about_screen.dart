@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/widgets/academic_background_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/custom_divider_widget.dart';
@@ -14,6 +15,8 @@ class AboutScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              kIsWeb ? SizedBox(height: 16) : SizedBox.shrink(),
+
               WhoIAmWidget(),
 
               SizedBox(height: 16),

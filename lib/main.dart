@@ -13,7 +13,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Victor Vaz Portfolio',
+      title: 'Victor Vaz',
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       home: kIsWeb ? WebMainScreen() : MainScreen(),
     );
   }
