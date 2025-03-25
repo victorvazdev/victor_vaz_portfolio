@@ -16,7 +16,7 @@ class BiographyWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            kIsWeb && width > 600
+            kIsWeb && width > 700
                 ? Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Column(
@@ -25,12 +25,26 @@ class BiographyWidget extends StatelessWidget {
                     children: [
                       SelectableText(
                         'Victor Vaz',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: TextStyle(
+                          fontSize: 51,
+                          fontWeight:
+                              Theme.of(
+                                context,
+                              ).textTheme.titleLarge!.fontWeight,
+                          color: Theme.of(context).textTheme.titleLarge!.color,
+                        ),
                       ),
 
                       SelectableText(
                         'Software Developer',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight:
+                              Theme.of(
+                                context,
+                              ).textTheme.titleMedium!.fontWeight,
+                          color: Theme.of(context).textTheme.titleMedium!.color,
+                        ),
                       ),
                     ],
                   ),

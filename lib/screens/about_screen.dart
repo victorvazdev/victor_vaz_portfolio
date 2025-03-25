@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/widgets/academic_background_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/custom_divider_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/professional_experience.dart';
-import 'package:victor_vaz_portfolio/widgets/who_i_am_widget.dart';
+import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -17,7 +17,7 @@ class AboutScreen extends StatelessWidget {
             children: [
               kIsWeb ? SizedBox(height: 16) : SizedBox.shrink(),
 
-              WhoIAmWidget(),
+              HeaderWidget(),
 
               SizedBox(height: 16),
 

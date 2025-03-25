@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/widgets/biography_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/contact_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/custom_divider_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/who_i_am_widget.dart';
+import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               kIsWeb ? SizedBox(height: 16) : SizedBox.shrink(),
 
-              WhoIAmWidget(),
+              HeaderWidget(),
 
               SizedBox(height: 16),
 
