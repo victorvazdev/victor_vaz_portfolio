@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:victor_vaz_portfolio/widgets/email_link_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -123,10 +124,14 @@ class _BuildGithubContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          'assets/images/github-logo.png',
-          semanticLabel: 'Nome de usuário no GitHub',
+        SvgPicture.asset(
+          'assets/images/github-logo.svg',
+          semanticsLabel: 'Nome de usuário no GitHub',
           height: 24,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).iconTheme.color!,
+            BlendMode.srcIn,
+          ),
         ),
 
         SizedBox(width: 8),
@@ -155,10 +160,14 @@ class _BuildLinkedinContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          'assets/images/linkedin-logo.png',
-          semanticLabel: 'Nome de usuário no LinkedIn',
+        SvgPicture.asset(
+          'assets/images/linkedin-logo.svg',
+          semanticsLabel: 'Nome de usuário no LinkedIn',
           height: 24,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).iconTheme.color!,
+            BlendMode.srcIn,
+          ),
         ),
 
         SizedBox(width: 8),

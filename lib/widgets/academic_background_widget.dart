@@ -70,7 +70,11 @@ class _BuildGraduation extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          Image.asset('assets/images/graduation.png', height: 32),
+          Icon(
+            Icons.menu_book,
+            size: 32,
+            color: Theme.of(context).iconTheme.color,
+          ),
           SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -60,7 +60,11 @@ class _BuildExperience extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset('assets/images/suitcase.png', height: 32),
+              Icon(
+                Icons.work,
+                size: 32,
+                color: Theme.of(context).iconTheme.color,
+              ),
               SizedBox(width: 16),
               Expanded(
                 child: Column(

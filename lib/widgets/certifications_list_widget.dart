@@ -51,7 +51,11 @@ class CertificationsListWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.asset('assets/images/certification.png', width: 16),
+                Icon(
+                  Icons.library_books,
+                  size: 16,
+                  color: Theme.of(context).iconTheme.color,
+                ),
                 const SizedBox(width: 8.0),
                 Expanded(
                   child: SelectableText(

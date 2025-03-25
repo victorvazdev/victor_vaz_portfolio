@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.17
   url_launcher: ^6.3.1
 
 dev_dependencies:
@@ -21,7 +22,9 @@ flutter:
   assets:
     - assets/images/victorvaz.jpg
     - assets/images/github-logo.png
+    - assets/images/github-logo.svg
     - assets/images/linkedin-logo.png
+    - assets/images/linkedin-logo.svg
     - assets/images/graduation.png
     - assets/images/suitcase.png
     - assets/images/certification.png
