@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Screens
@@ -8,7 +9,6 @@ import 'package:victor_vaz_portfolio/widgets/academic_background_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/biography_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/certifications_list_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/contact_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/custom_divider_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/professional_experience.dart';
 import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
 
@@ -64,20 +64,20 @@ class _WebMainScreenState extends State<WebMainScreen> {
             ),
           ),
         ),
-        titleSpacing: 72,
-        actionsPadding: const EdgeInsets.only(right: 72),
+        titleSpacing: width > 950 ? 72 : 32,
+        actionsPadding: EdgeInsets.only(right: width > 950 ? 72 : 32),
         actions: [
           TextButton(
             style: Theme.of(context).textButtonTheme.style,
             onPressed: () => _scrollTo(_experienceKey),
             child: Text(
-              width < 800 ? 'E. Profissional' : 'Experiência Profissional',
+              width < 900 ? 'E. Profissional' : 'Experiência Profissional',
             ),
           ),
           TextButton(
             style: Theme.of(context).textButtonTheme.style,
             onPressed: () => _scrollTo(_academicKey),
-            child: Text(width < 800 ? 'F. Acadêmica' : 'Formação Acadêmica'),
+            child: Text(width < 900 ? 'F. Acadêmica' : 'Formação Acadêmica'),
           ),
           TextButton(
             style: Theme.of(context).textButtonTheme.style,
@@ -124,7 +124,6 @@ class _WebMainScreenState extends State<WebMainScreen> {
                     key: _experienceKey,
                     child: const ProfessionalExperience(),
                   ),
-                  const CustomDividerWidget(),
                   Container(
                     key: _academicKey,
                     child: const AcademicBackgroundWidget(),
@@ -133,7 +132,11 @@ class _WebMainScreenState extends State<WebMainScreen> {
                     key: _certificationsKey,
                     child: const CertificationsListWidget(),
                   ),
-                  const CustomDividerWidget(),
+                  kIsWeb && width > 700
+                      ? SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.05,
+                      )
+                      : SizedBox.shrink(),
                   Container(key: _contactKey, child: const ContactWidget()),
                 ],
               ),
@@ -142,6 +145,9 @@ class _WebMainScreenState extends State<WebMainScreen> {
             const SizedBox(height: 32),
 
             // Footer
+            kIsWeb && width > 700
+                ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+                : SizedBox.shrink(),
             Center(
               child: SelectableText(
                 '© 2025 por Victor Vaz',

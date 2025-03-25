@@ -8,87 +8,114 @@ class AcademicBackgroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+    Widget buildGraduation(String name, String period) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
           children: [
-            Text(
-              'Formação Acadêmica',
-              style: Theme.of(context).textTheme.titleSmall,
-              textAlign: TextAlign.left,
+            Icon(
+              Icons.menu_book,
+              size: kIsWeb && width > 700 ? 64 : 32,
+              color: Theme.of(context).iconTheme.color,
             ),
+            SizedBox(width: 16),
+            Column(
+              mainAxisAlignment:
+                  kIsWeb && width > 700
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SelectableText(
+                  name,
+                  style:
+                      kIsWeb && width > 700
+                          ? TextStyle(
+                            color:
+                                Theme.of(context).textTheme.titleSmall!.color,
+                            fontSize: 24,
+                            fontWeight:
+                                Theme.of(
+                                  context,
+                                ).textTheme.titleSmall!.fontWeight,
+                          )
+                          : Theme.of(context).textTheme.titleSmall,
+                ),
+                SelectableText(
+                  period,
+                  style:
+                      kIsWeb && width > 700
+                          ? TextStyle(
+                            color: Theme.of(context).textTheme.bodySmall!.color,
+                          )
+                          : Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
 
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment:
             kIsWeb && width > 700
-                ? Row(
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Formação Acadêmica',
+            style:
+                kIsWeb && width > 700
+                    ? TextStyle(
+                      color: Theme.of(context).textTheme.titleSmall!.color,
+                      fontSize: 28,
+                      fontWeight:
+                          Theme.of(context).textTheme.titleSmall!.fontWeight,
+                    )
+                    : Theme.of(context).textTheme.titleSmall,
+          ),
+
+          kIsWeb && width > 700
+              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+              : SizedBox.shrink(),
+
+          kIsWeb && width > 750
+              ? SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _BuildGraduation(
-                      name: 'Sistemas de Informação',
-                      period: 'UNA - de fevereiro de 2022 até o momento.',
+                    buildGraduation(
+                      'Sistemas de Informação',
+                      'UNA - de fevereiro de 2022 até o momento.',
                     ),
 
                     SizedBox(width: 32),
 
-                    _BuildGraduation(
-                      name: 'Engenharia da Computação',
-                      period: 'UTFPR - de fevereiro de 2019 até Julho de 2020.',
-                    ),
-                  ],
-                )
-                : Column(
-                  children: [
-                    _BuildGraduation(
-                      name: 'Sistemas de Informação',
-                      period: 'UNA - de fevereiro de 2022 até o momento.',
-                    ),
-
-                    _BuildGraduation(
-                      name: 'Engenharia da Computação',
-                      period: 'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                    buildGraduation(
+                      'Engenharia da Computação',
+                      'UTFPR - de fevereiro de 2019 até Julho de 2020.',
                     ),
                   ],
                 ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+              )
+              : Column(
+                children: [
+                  buildGraduation(
+                    'Sistemas de Informação',
+                    'UNA - de fevereiro de 2022 até o momento.',
+                  ),
 
-class _BuildGraduation extends StatelessWidget {
-  const _BuildGraduation({required this.name, required this.period});
-
-  final String name;
-  final String period;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Icon(
-            Icons.menu_book,
-            size: 32,
-            color: Theme.of(context).iconTheme.color,
-          ),
-          SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SelectableText(
-                name,
-                style: Theme.of(context).textTheme.titleSmall,
+                  buildGraduation(
+                    'Engenharia da Computação',
+                    'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                  ),
+                ],
               ),
-              SelectableText(
-                period,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ),
         ],
       ),
     );

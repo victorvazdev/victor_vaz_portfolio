@@ -10,7 +10,7 @@ class HeaderWidget extends StatelessWidget {
 
     return Column(
       children: [
-        kIsWeb && width > 700
+        kIsWeb && width > 750
             ? Column(
               children: [
                 ClipRRect(
