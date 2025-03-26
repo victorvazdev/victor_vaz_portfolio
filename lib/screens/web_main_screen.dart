@@ -11,6 +11,7 @@ import 'package:victor_vaz_portfolio/widgets/certifications_list_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/contact_widget.dart';
 import 'package:victor_vaz_portfolio/widgets/professional_experience.dart';
 import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class WebMainScreen extends StatefulWidget {
   const WebMainScreen({super.key});
@@ -27,6 +28,13 @@ class _WebMainScreenState extends State<WebMainScreen> {
   final GlobalKey _academicKey = GlobalKey();
   final GlobalKey _certificationsKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
+
+  bool _hasShownHeader = false;
+  bool _hasShownExperience = false;
+  bool _hasShownAcademic = false;
+  bool _hasShownCertifications = false;
+  bool _hasShownContact = false;
+  bool _hasShownCopyrights = false;
 
   void _scrollTo(GlobalKey key) {
     Scrollable.ensureVisible(
@@ -96,36 +104,50 @@ class _WebMainScreenState extends State<WebMainScreen> {
         child: Column(
           children: [
             // Header section
-            Container(
-              padding: const EdgeInsets.only(left: 80, top: 10, right: 80),
-              // height: MediaQuery.sizeOf(context).height * 0.7,
-              key: _headerKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
+            VisibilityDetector(
+              key: Key('header-visibility'),
+              onVisibilityChanged: (info) {
+                if (info.visibleFraction > 0 && !_hasShownHeader) {
+                  setState(() {
+                    _hasShownHeader = true;
+                  });
+                }
+              },
+              child: AnimatedOpacity(
+                opacity: _hasShownHeader ? 1.0 : 0.0,
+                duration: const Duration(seconds: 1),
+                curve: Curves.easeIn,
+                child: Container(
+                  padding: const EdgeInsets.only(left: 80, top: 10, right: 80),
+                  key: _headerKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      kIsWeb && width > 700
-                          ? SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.2,
-                          )
-                          : SizedBox.shrink(),
-
-                      Row(
+                      Column(
                         children: [
-                          const HeaderWidget(),
-                          const Expanded(child: BiographyWidget()),
+                          kIsWeb && width > 700
+                              ? SizedBox(
+                                height: MediaQuery.sizeOf(context).height * 0.2,
+                              )
+                              : SizedBox.shrink(),
+
+                          Row(
+                            children: [
+                              const HeaderWidget(),
+                              const Expanded(child: BiographyWidget()),
+                            ],
+                          ),
+
+                          kIsWeb && width > 700
+                              ? SizedBox(
+                                height: MediaQuery.sizeOf(context).height * 0.2,
+                              )
+                              : SizedBox.shrink(),
                         ],
                       ),
-
-                      kIsWeb && width > 700
-                          ? SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.2,
-                          )
-                          : SizedBox.shrink(),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
 
@@ -136,24 +158,92 @@ class _WebMainScreenState extends State<WebMainScreen> {
               width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
                 children: [
-                  Container(
-                    key: _experienceKey,
-                    child: const ProfessionalExperience(),
+                  // Experience section
+                  VisibilityDetector(
+                    key: Key('experience-visibility'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0 && !_hasShownExperience) {
+                        setState(() {
+                          _hasShownExperience = true;
+                        });
+                      }
+                    },
+                    child: AnimatedOpacity(
+                      opacity: _hasShownExperience ? 1.0 : 0.0,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                      child: Container(
+                        key: _experienceKey,
+                        child: const ProfessionalExperience(),
+                      ),
+                    ),
                   ),
-                  Container(
-                    key: _academicKey,
-                    child: const AcademicBackgroundWidget(),
+                  // Academic section
+                  VisibilityDetector(
+                    key: Key('academic-visibility'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0 && !_hasShownAcademic) {
+                        setState(() {
+                          _hasShownAcademic = true;
+                        });
+                      }
+                    },
+                    child: AnimatedOpacity(
+                      opacity: _hasShownAcademic ? 1.0 : 0.0,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                      child: Container(
+                        key: _academicKey,
+                        child: const AcademicBackgroundWidget(),
+                      ),
+                    ),
                   ),
-                  Container(
-                    key: _certificationsKey,
-                    child: const CertificationsListWidget(),
+                  // Certifications section
+                  VisibilityDetector(
+                    key: Key('certifications-visibility'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0 &&
+                          !_hasShownCertifications) {
+                        setState(() {
+                          _hasShownCertifications = true;
+                        });
+                      }
+                    },
+                    child: AnimatedOpacity(
+                      opacity: _hasShownCertifications ? 1.0 : 0.0,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                      child: Container(
+                        key: _certificationsKey,
+                        child: const CertificationsListWidget(),
+                      ),
+                    ),
                   ),
                   kIsWeb && width > 700
                       ? SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.05,
                       )
                       : SizedBox.shrink(),
-                  Container(key: _contactKey, child: const ContactWidget()),
+                  // Contact section
+                  VisibilityDetector(
+                    key: Key('contact-visibility'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0 && !_hasShownContact) {
+                        setState(() {
+                          _hasShownContact = true;
+                        });
+                      }
+                    },
+                    child: AnimatedOpacity(
+                      opacity: _hasShownContact ? 1.0 : 0.0,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                      child: Container(
+                        key: _contactKey,
+                        child: const ContactWidget(),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -164,10 +254,25 @@ class _WebMainScreenState extends State<WebMainScreen> {
             kIsWeb && width > 700
                 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
                 : SizedBox.shrink(),
-            Center(
-              child: SelectableText(
-                '© 2025 por Victor Vaz',
-                style: Theme.of(context).textTheme.bodyMedium,
+            VisibilityDetector(
+              key: Key('copyrights-visibility'),
+              onVisibilityChanged: (info) {
+                if (info.visibleFraction > 0 && !_hasShownCopyrights) {
+                  setState(() {
+                    _hasShownCopyrights = true;
+                  });
+                }
+              },
+              child: AnimatedOpacity(
+                opacity: _hasShownCopyrights ? 1.0 : 0.0,
+                duration: const Duration(seconds: 1),
+                curve: Curves.easeIn,
+                child: Center(
+                  child: SelectableText(
+                    '© 2025 por Victor Vaz',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 16),
