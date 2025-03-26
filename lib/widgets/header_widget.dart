@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/constants.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -15,10 +16,7 @@ class HeaderWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    'assets/images/victorvaz.jpg',
-                    height: 256,
-                  ),
+                  child: Image.asset(Constants.myPhoto, height: 256),
                 ),
               ],
             )
@@ -26,7 +24,7 @@ class HeaderWidget extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 64,
-                  backgroundImage: AssetImage('assets/images/victorvaz.jpg'),
+                  backgroundImage: AssetImage(Constants.myPhoto),
                 ),
 
                 SelectableText(

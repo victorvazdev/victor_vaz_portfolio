@@ -21,6 +21,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/victorvaz.jpg
+    - assets/images/victorvaz.webp
     - assets/images/github-logo.svg
     - assets/images/linkedin-logo.svg
