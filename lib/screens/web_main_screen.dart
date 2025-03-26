@@ -98,15 +98,31 @@ class _WebMainScreenState extends State<WebMainScreen> {
             // Header section
             Container(
               padding: const EdgeInsets.only(left: 80, top: 10, right: 80),
-              height: MediaQuery.sizeOf(context).height * 0.7,
+              // height: MediaQuery.sizeOf(context).height * 0.7,
               key: _headerKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
+                  Column(
                     children: [
-                      const HeaderWidget(),
-                      const Expanded(child: BiographyWidget()),
+                      kIsWeb && width > 700
+                          ? SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.2,
+                          )
+                          : SizedBox.shrink(),
+
+                      Row(
+                        children: [
+                          const HeaderWidget(),
+                          const Expanded(child: BiographyWidget()),
+                        ],
+                      ),
+
+                      kIsWeb && width > 700
+                          ? SizedBox(
+                            height: MediaQuery.sizeOf(context).height * 0.2,
+                          )
+                          : SizedBox.shrink(),
                     ],
                   ),
                 ],

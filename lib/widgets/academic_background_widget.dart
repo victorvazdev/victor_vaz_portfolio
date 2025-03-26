@@ -83,23 +83,36 @@ class AcademicBackgroundWidget extends StatelessWidget {
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
               : SizedBox.shrink(),
 
-          kIsWeb && width > 750
+          kIsWeb && width > 850
               ? SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.3,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Column(
                   children: [
-                    buildGraduation(
-                      'Sistemas de Informação',
-                      'UNA - de fevereiro de 2022 até o momento.',
+                    kIsWeb && width > 700
+                        ? SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.05,
+                        )
+                        : SizedBox.shrink(),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        buildGraduation(
+                          'Sistemas de Informação',
+                          'UNA - de fevereiro de 2022 até o momento.',
+                        ),
+
+                        buildGraduation(
+                          'Engenharia da Computação',
+                          'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                        ),
+                      ],
                     ),
 
-                    SizedBox(width: 32),
-
-                    buildGraduation(
-                      'Engenharia da Computação',
-                      'UTFPR - de fevereiro de 2019 até Julho de 2020.',
-                    ),
+                    kIsWeb && width > 700
+                        ? SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.05,
+                        )
+                        : SizedBox.shrink(),
                   ],
                 ),
               )

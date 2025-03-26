@@ -92,31 +92,37 @@ class ProfessionalExperience extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          SizedBox(
-            height:
-                kIsWeb && width > 700
-                    ? MediaQuery.sizeOf(context).height * 0.6
-                    : null,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildExperience(
-                  'Liderança da equipe de comunicação',
+          kIsWeb && width > 700
+              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+              : SizedBox.shrink(),
 
-                  'Lagoinnha Buritis - de março de 2023 até outubro de 2023',
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildExperience(
+                'Liderança da equipe de comunicação',
 
-                  'Liderei a equipe de comunicação, coordenando a captação de imagens e vídeos de momentos-chave em eventos, gerenciando mídias sociais e realizando transmissões ao vivo no YouTube, garantindo uma comunicação eficiente e engajamento do público.',
-                ),
+                'Lagoinnha Buritis - de março de 2023 até outubro de 2023',
 
-                buildExperience(
-                  'Liderança da equipe de mídia',
+                'Liderei a equipe de comunicação, coordenando a captação de imagens e vídeos de momentos-chave em eventos, gerenciando mídias sociais e realizando transmissões ao vivo no YouTube, garantindo uma comunicação eficiente e engajamento do público.',
+              ),
 
-                  'Luz do Mundo Church - de novembro de 2021 até fevereiro de 2023',
+              kIsWeb && width > 700
+                  ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+                  : SizedBox.shrink(),
 
-                  'Fui responsável pela distribuição de tarefas dentro da equipe, desenvolvimento e manutenção do website, gerenciamento de canal no YouTube e administração de mídias sociais, garantindo a criação de conteúdo estratégico e a otimização da presença digital da marca.',
-                ),
-              ],
-            ),
+              buildExperience(
+                'Liderança da equipe de mídia',
+
+                'Luz do Mundo Church - de novembro de 2021 até fevereiro de 2023',
+
+                'Fui responsável pela distribuição de tarefas dentro da equipe, desenvolvimento e manutenção do website, gerenciamento de canal no YouTube e administração de mídias sociais, garantindo a criação de conteúdo estratégico e a otimização da presença digital da marca.',
+              ),
+
+              kIsWeb && width > 700
+                  ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
+                  : SizedBox.shrink(),
+            ],
           ),
         ],
       ),
