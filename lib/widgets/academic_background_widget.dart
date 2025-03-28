@@ -18,7 +18,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
               size: kIsWeb && width > 700 ? 64 : 32,
               color: Theme.of(context).iconTheme.color,
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Column(
               mainAxisAlignment:
                   kIsWeb && width > 700
@@ -81,7 +81,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
 
           kIsWeb && width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
 
           kIsWeb && width > 850
               ? SizedBox(
@@ -91,7 +91,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
                         ? SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.05,
                         )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -112,7 +112,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
                         ? SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.05,
                         )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                   ],
                 ),
               )

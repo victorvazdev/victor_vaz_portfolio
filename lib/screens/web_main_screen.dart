@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Screens
-import 'package:victor_vaz_portfolio/screens/main_screen.dart';
+// import 'package:victor_vaz_portfolio/screens/main_screen.dart';
 
 // Widgets
 import 'package:victor_vaz_portfolio/widgets/academic_background_widget.dart';
@@ -47,8 +46,6 @@ class _WebMainScreenState extends State<WebMainScreen> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-
-    if (width < 700) return const MainScreen();
 
     return Scaffold(
       appBar: AppBar(
@@ -103,64 +100,78 @@ class _WebMainScreenState extends State<WebMainScreen> {
         controller: _scrollController,
         child: Column(
           children: [
-            // Header section
-            VisibilityDetector(
-              key: Key('header-visibility'),
-              onVisibilityChanged: (info) {
-                if (info.visibleFraction > 0 && !_hasShownHeader) {
-                  setState(() {
-                    _hasShownHeader = true;
-                  });
-                }
-              },
-              child: AnimatedOpacity(
-                opacity: _hasShownHeader ? 1.0 : 0.0,
-                duration: const Duration(seconds: 1),
-                curve: Curves.easeIn,
-                child: Container(
-                  padding: const EdgeInsets.only(left: 80, top: 10, right: 80),
-                  key: _headerKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          kIsWeb && width > 700
-                              ? SizedBox(
-                                height: MediaQuery.sizeOf(context).height * 0.2,
-                              )
-                              : SizedBox.shrink(),
-
-                          Row(
-                            children: [
-                              const HeaderWidget(),
-                              const Expanded(child: BiographyWidget()),
-                            ],
-                          ),
-
-                          kIsWeb && width > 700
-                              ? SizedBox(
-                                height: MediaQuery.sizeOf(context).height * 0.2,
-                              )
-                              : SizedBox.shrink(),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
             // Main content card
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
                 children: [
+                  // Header section
+                  VisibilityDetector(
+                    key: const Key('header-visibility'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0 && !_hasShownHeader) {
+                        setState(() {
+                          _hasShownHeader = true;
+                        });
+                      }
+                    },
+                    child: AnimatedOpacity(
+                      opacity: _hasShownHeader ? 1.0 : 0.0,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeIn,
+                      child: Container(
+                        key: _headerKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                width > 700
+                                    ? Column(
+                                      children: [
+                                        SizedBox(
+                                          height:
+                                              MediaQuery.sizeOf(
+                                                context,
+                                              ).height *
+                                              0.2,
+                                        ),
+                                        Row(
+                                          children: [
+                                            const HeaderWidget(),
+                                            const Expanded(
+                                              child: BiographyWidget(),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height:
+                                              MediaQuery.sizeOf(
+                                                context,
+                                              ).height *
+                                              0.2,
+                                        ),
+                                      ],
+                                    )
+                                    : Column(
+                                      children: [
+                                        const HeaderWidget(),
+                                        const BiographyWidget(),
+                                      ],
+                                    ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
                   // Experience section
                   VisibilityDetector(
-                    key: Key('experience-visibility'),
+                    key: const Key('experience-visibility'),
                     onVisibilityChanged: (info) {
                       if (info.visibleFraction > 0 && !_hasShownExperience) {
                         setState(() {
@@ -180,7 +191,7 @@ class _WebMainScreenState extends State<WebMainScreen> {
                   ),
                   // Academic section
                   VisibilityDetector(
-                    key: Key('academic-visibility'),
+                    key: const Key('academic-visibility'),
                     onVisibilityChanged: (info) {
                       if (info.visibleFraction > 0 && !_hasShownAcademic) {
                         setState(() {
@@ -200,7 +211,7 @@ class _WebMainScreenState extends State<WebMainScreen> {
                   ),
                   // Certifications section
                   VisibilityDetector(
-                    key: Key('certifications-visibility'),
+                    key: const Key('certifications-visibility'),
                     onVisibilityChanged: (info) {
                       if (info.visibleFraction > 0 &&
                           !_hasShownCertifications) {
@@ -219,14 +230,14 @@ class _WebMainScreenState extends State<WebMainScreen> {
                       ),
                     ),
                   ),
-                  kIsWeb && width > 700
+                  width > 700
                       ? SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.05,
                       )
-                      : SizedBox.shrink(),
+                      : const SizedBox.shrink(),
                   // Contact section
                   VisibilityDetector(
-                    key: Key('contact-visibility'),
+                    key: const Key('contact-visibility'),
                     onVisibilityChanged: (info) {
                       if (info.visibleFraction > 0 && !_hasShownContact) {
                         setState(() {
@@ -251,9 +262,9 @@ class _WebMainScreenState extends State<WebMainScreen> {
             const SizedBox(height: 32),
 
             // Footer
-            kIsWeb && width > 700
+            width > 700
                 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
             VisibilityDetector(
               key: Key('copyrights-visibility'),
               onVisibilityChanged: (info) {

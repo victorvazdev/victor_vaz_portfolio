@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
       themeMode: ThemeMode.system,
-      home: kIsWeb ? WebMainScreen() : MainScreen(),
+      home: kIsWeb ? const WebMainScreen() : const MainScreen(),
     );
   }
 }

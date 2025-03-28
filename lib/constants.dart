@@ -6,7 +6,6 @@ class Constants {
   static Color lightTextColor = Color(0xFF262e3b);
   static Color lightContrastColor = Color(0xFF343f51);
   static Color lightBackground = Color(0xFFFAFAFA);
-  static String myPhoto = 'assets/images/victorvaz.webp';
 
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,

@@ -51,7 +51,6 @@ class _ContactWidgetState extends State<ContactWidget> {
                           Theme.of(context).textTheme.titleSmall!.fontWeight,
                     )
                     : Theme.of(context).textTheme.titleSmall,
-            textAlign: TextAlign.left,
           ),
 
           kIsWeb && width > 700
@@ -76,11 +75,11 @@ class _ContactWidgetState extends State<ContactWidget> {
                           onChanged: _handlePhoneWidgetChanged,
                         ),
 
-                        _BuildLinkedinContact(),
+                        const _BuildLinkedinContact(),
 
-                        _BuildGithubContact(),
+                        const _BuildGithubContact(),
 
-                        _BuildLocalContact(),
+                        const _BuildLocalContact(),
                       ],
                     )
                     : Column(
@@ -93,22 +92,22 @@ class _ContactWidgetState extends State<ContactWidget> {
                           onChanged: _handleEmailWidgetChanged,
                         ),
 
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
 
                         _BuildPhoneContact(
                           isShowingPhone: isShowingPhone,
                           onChanged: _handlePhoneWidgetChanged,
                         ),
 
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
 
                         _BuildLinkedinContact(),
 
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
 
                         _BuildGithubContact(),
 
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
 
                         _BuildLocalContact(),
                       ],
@@ -121,6 +120,8 @@ class _ContactWidgetState extends State<ContactWidget> {
 }
 
 class _BuildLocalContact extends StatelessWidget {
+  const _BuildLocalContact();
+
   Future<void> _launchWebsite() async {
     final Uri url = Uri.parse('https://maps.app.goo.gl/xTcMRQEX93AVQpa5A');
     if (!await launchUrl(url)) {
@@ -141,7 +142,7 @@ class _BuildLocalContact extends StatelessWidget {
             semanticLabel: 'Local de habitação',
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           InkWell(
             onTap: _launchWebsite,
@@ -157,6 +158,8 @@ class _BuildLocalContact extends StatelessWidget {
 }
 
 class _BuildGithubContact extends StatelessWidget {
+  const _BuildGithubContact();
+
   Future<void> _launchWebsite() async {
     final Uri url = Uri.parse('https://github.com/victorvazdev');
     if (!await launchUrl(url)) {
@@ -180,7 +183,7 @@ class _BuildGithubContact extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           InkWell(
             onTap: _launchWebsite,
@@ -196,6 +199,8 @@ class _BuildGithubContact extends StatelessWidget {
 }
 
 class _BuildLinkedinContact extends StatelessWidget {
+  const _BuildLinkedinContact();
+
   Future<void> _launchWebsite() async {
     final Uri url = Uri.parse('https://www.linkedin.com/in/victorvazdev/');
     if (!await launchUrl(url)) {
@@ -219,7 +224,7 @@ class _BuildLinkedinContact extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           InkWell(
             onTap: _launchWebsite,
@@ -270,7 +275,7 @@ class _BuildPhoneContact extends StatelessWidget {
             semanticLabel: 'Contato por telefone',
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           (isShowingPhone)
               ? Row(
@@ -355,7 +360,7 @@ class _BuildEmailContact extends StatelessWidget {
             semanticLabel: 'Contato por e-mail',
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           (isShowingEmail)
               ? Row(

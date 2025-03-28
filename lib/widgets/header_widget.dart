@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -8,6 +7,7 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    const String myPhoto = 'assets/images/victorvaz.webp';
 
     return Column(
       children: [
@@ -16,15 +16,15 @@ class HeaderWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(Constants.myPhoto, height: 256),
+                  child: Image.asset(myPhoto, height: 256),
                 ),
               ],
             )
             : Column(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 64,
-                  backgroundImage: AssetImage(Constants.myPhoto),
+                  backgroundImage: AssetImage(myPhoto),
                 ),
 
                 SelectableText(

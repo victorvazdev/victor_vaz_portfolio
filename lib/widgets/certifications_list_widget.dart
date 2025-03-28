@@ -7,7 +7,7 @@ class CertificationsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    final List<String> certifications = [
+    const List<String> certifications = [
       'Formação: Domine a linguagem Swift',
       'Scrum Fundamentals Certified (SFC™)',
       'Dart: dominando assincronismo e criando comunicações com APIs',
@@ -92,10 +92,10 @@ class CertificationsListWidget extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           kIsWeb && width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
 
           kIsWeb && width > 750
               ? GridView.builder(
