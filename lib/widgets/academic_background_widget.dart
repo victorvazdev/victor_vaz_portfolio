@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AcademicBackgroundWidget extends StatelessWidget {
@@ -15,13 +14,13 @@ class AcademicBackgroundWidget extends StatelessWidget {
           children: [
             Icon(
               Icons.menu_book,
-              size: kIsWeb && width > 700 ? 64 : 32,
+              size: width > 700 ? 64 : 32,
               color: Theme.of(context).iconTheme.color,
             ),
             const SizedBox(width: 16),
             Column(
               mainAxisAlignment:
-                  kIsWeb && width > 700
+                  width > 700
                       ? MainAxisAlignment.center
                       : MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +28,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
                 SelectableText(
                   name,
                   style:
-                      kIsWeb && width > 700
+                      width > 700
                           ? TextStyle(
                             color:
                                 Theme.of(context).textTheme.titleSmall!.color,
@@ -44,7 +43,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
                 SelectableText(
                   period,
                   style:
-                      kIsWeb && width > 700
+                      width > 700
                           ? TextStyle(
                             color: Theme.of(context).textTheme.bodySmall!.color,
                           )
@@ -62,14 +61,12 @@ class AcademicBackgroundWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment:
-            kIsWeb && width > 700
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
+            width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Text(
             'Formação Acadêmica',
             style:
-                kIsWeb && width > 700
+                width > 700
                     ? TextStyle(
                       color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 28,
@@ -79,15 +76,15 @@ class AcademicBackgroundWidget extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          kIsWeb && width > 700
+          width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
               : const SizedBox.shrink(),
 
-          kIsWeb && width > 850
+          width > 950
               ? SizedBox(
                 child: Column(
                   children: [
-                    kIsWeb && width > 700
+                    width > 700
                         ? SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.05,
                         )
@@ -108,7 +105,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
                       ],
                     ),
 
-                    kIsWeb && width > 700
+                    width > 700
                         ? SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.05,
                         )

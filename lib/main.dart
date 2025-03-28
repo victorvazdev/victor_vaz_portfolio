@@ -1,8 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/constants.dart';
+import 'package:victor_vaz_portfolio/core/themes.dart';
 import 'package:victor_vaz_portfolio/screens/main_screen.dart';
-import 'package:victor_vaz_portfolio/screens/web_main_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,10 +13,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Victor Vaz',
-      theme: Constants.lightTheme,
-      darkTheme: Constants.darkTheme,
+      theme: Themes.lightTheme,
+      darkTheme: Themes.darkTheme,
       themeMode: ThemeMode.system,
-      home: kIsWeb ? const WebMainScreen() : const MainScreen(),
+      home: const MainScreen(),
     );
   }
 }

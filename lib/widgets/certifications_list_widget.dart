@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CertificationsListWidget extends StatelessWidget {
@@ -75,14 +74,12 @@ class CertificationsListWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment:
-            kIsWeb && width > 700
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
+            width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Text(
             'Certificações',
             style:
-                kIsWeb && width > 700
+                width > 700
                     ? TextStyle(
                       color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 28,
@@ -93,11 +90,11 @@ class CertificationsListWidget extends StatelessWidget {
           ),
 
           const SizedBox(height: 8),
-          kIsWeb && width > 700
+          width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
               : const SizedBox.shrink(),
 
-          kIsWeb && width > 750
+          width > 750
               ? GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

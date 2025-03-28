@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:victor_vaz_portfolio/widgets/email_link_widget.dart';
@@ -36,14 +35,12 @@ class _ContactWidgetState extends State<ContactWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment:
-            kIsWeb && width > 700
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
+            width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           SelectableText(
             'Contato',
             style:
-                kIsWeb && width > 700
+                width > 700
                     ? TextStyle(
                       color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 28,
@@ -53,14 +50,14 @@ class _ContactWidgetState extends State<ContactWidget> {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          kIsWeb && width > 700
+          width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
               : SizedBox.shrink(),
 
           Padding(
             padding: const EdgeInsets.all(8.0),
             child:
-                kIsWeb && width > 700
+                width > 700
                     ? Wrap(
                       spacing: 8.0,
                       runSpacing: 32.0,

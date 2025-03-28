@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -11,7 +10,7 @@ class HeaderWidget extends StatelessWidget {
 
     return Column(
       children: [
-        kIsWeb && width > 750
+        width > 750
             ? Column(
               children: [
                 ClipRRect(

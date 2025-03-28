@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BiographyWidget extends StatelessWidget {
@@ -14,7 +13,7 @@ class BiographyWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          kIsWeb && width > 750
+          width > 750
               ? Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Column(

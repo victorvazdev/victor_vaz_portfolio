@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ProfessionalExperience extends StatelessWidget {
@@ -17,7 +16,7 @@ class ProfessionalExperience extends StatelessWidget {
               children: [
                 Icon(
                   Icons.work,
-                  size: kIsWeb && width > 700 ? 64 : 32,
+                  size: width > 700 ? 64 : 32,
                   color: Theme.of(context).iconTheme.color,
                 ),
                 SizedBox(width: 16),
@@ -28,7 +27,7 @@ class ProfessionalExperience extends StatelessWidget {
                       SelectableText(
                         name,
                         style:
-                            kIsWeb && width > 700
+                            width > 700
                                 ? TextStyle(
                                   color:
                                       Theme.of(
@@ -45,7 +44,7 @@ class ProfessionalExperience extends StatelessWidget {
                       SelectableText(
                         period,
                         style:
-                            kIsWeb && width > 700
+                            width > 700
                                 ? TextStyle(
                                   color:
                                       Theme.of(
@@ -60,7 +59,7 @@ class ProfessionalExperience extends StatelessWidget {
               ],
             ),
             SizedBox(height: 5),
-            kIsWeb && width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
+            width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
             SelectableText(
               description,
               style: Theme.of(context).textTheme.bodyMedium,
@@ -75,14 +74,12 @@ class ProfessionalExperience extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment:
-            kIsWeb && width > 700
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
+            width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Text(
             'Experiência Profissional',
             style:
-                kIsWeb && width > 700
+                width > 700
                     ? TextStyle(
                       color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 28,
@@ -92,7 +89,7 @@ class ProfessionalExperience extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          kIsWeb && width > 700
+          width > 700
               ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
               : SizedBox.shrink(),
 
@@ -107,7 +104,7 @@ class ProfessionalExperience extends StatelessWidget {
                 'Liderei a equipe de comunicação, coordenando a captação de imagens e vídeos de momentos-chave em eventos, gerenciando mídias sociais e realizando transmissões ao vivo no YouTube, garantindo uma comunicação eficiente e engajamento do público.',
               ),
 
-              kIsWeb && width > 700
+              width > 700
                   ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
                   : SizedBox.shrink(),
 
@@ -119,7 +116,7 @@ class ProfessionalExperience extends StatelessWidget {
                 'Fui responsável pela distribuição de tarefas dentro da equipe, desenvolvimento e manutenção do website, gerenciamento de canal no YouTube e administração de mídias sociais, garantindo a criação de conteúdo estratégico e a otimização da presença digital da marca.',
               ),
 
-              kIsWeb && width > 700
+              width > 700
                   ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
                   : SizedBox.shrink(),
             ],
