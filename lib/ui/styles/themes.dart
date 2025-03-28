@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/core/constants.dart';
+import 'package:victor_vaz_portfolio/ui/styles/constants.dart';
 
 class Themes {
   static final ThemeData lightTheme = ThemeData(

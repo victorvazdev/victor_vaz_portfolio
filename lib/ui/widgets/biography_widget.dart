@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
 class BiographyWidget extends StatelessWidget {
-  const BiographyWidget({super.key});
+  const BiographyWidget({
+    super.key,
+    required this.name,
+    required this.position,
+    required this.biography,
+  });
+
+  final String name;
+  final String position;
+  final String biography;
 
   @override
   Widget build(BuildContext context) {
+    const String sectionTitle = 'Biografia';
     double width = MediaQuery.of(context).size.width;
 
     return Padding(
@@ -21,7 +31,7 @@ class BiographyWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SelectableText(
-                      'Victor Vaz',
+                      name,
                       style: TextStyle(
                         fontSize: 51,
                         fontWeight:
@@ -31,7 +41,7 @@ class BiographyWidget extends StatelessWidget {
                     ),
 
                     SelectableText(
-                      'Software Developer',
+                      position,
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight:
@@ -43,7 +53,7 @@ class BiographyWidget extends StatelessWidget {
                 ),
               )
               : SelectableText(
-                'Biografia',
+                sectionTitle,
                 style: Theme.of(context).textTheme.titleSmall,
                 textAlign: TextAlign.left,
               ),
@@ -51,7 +61,7 @@ class BiographyWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectableText(
-              'Estudante de Sistemas de Informação e Desenvolvimento Mobile, apaixonado por tecnologia e aprendizado contínuo. Busco constantemente explorar novas tecnologias e aprimorar meu conhecimento em soluções consolidadas no mercado. Com uma mentalidade inovadora e foco em eficiência, estou sempre em busca de desafios que me permitam evoluir e contribuir significativamente para os projetos em que atuo.',
+              biography,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),

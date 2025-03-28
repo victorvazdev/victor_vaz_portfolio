@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/core/themes.dart';
-import 'package:victor_vaz_portfolio/screens/main_screen.dart';
+import 'package:victor_vaz_portfolio/ui/styles/themes.dart';
+import 'package:victor_vaz_portfolio/ui/screens/main_screen.dart';
 
 void main() {
   runApp(const MainApp());

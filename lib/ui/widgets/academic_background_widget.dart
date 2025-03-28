@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/models/graduation.dart';
 
 class AcademicBackgroundWidget extends StatelessWidget {
-  const AcademicBackgroundWidget({super.key});
+  const AcademicBackgroundWidget({super.key, required this.graduations});
+
+  final List<Graduation> graduations;
 
   @override
   Widget build(BuildContext context) {
+    const String sectionTitle = 'Formação Acadêmica';
     double width = MediaQuery.of(context).size.width;
 
     Widget buildGraduation(String name, String period) {
@@ -64,7 +68,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
             width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Text(
-            'Formação Acadêmica',
+            sectionTitle,
             style:
                 width > 700
                     ? TextStyle(
@@ -93,14 +97,11 @@ class AcademicBackgroundWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildGraduation(
-                          'Sistemas de Informação',
-                          'UNA - de fevereiro de 2022 até o momento.',
-                        ),
-
-                        buildGraduation(
-                          'Engenharia da Computação',
-                          'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                        ...graduations.map(
+                          (graduation) => buildGraduation(
+                            graduation.name,
+                            graduation.period,
+                          ),
                         ),
                       ],
                     ),
@@ -115,14 +116,9 @@ class AcademicBackgroundWidget extends StatelessWidget {
               )
               : Column(
                 children: [
-                  buildGraduation(
-                    'Sistemas de Informação',
-                    'UNA - de fevereiro de 2022 até o momento.',
-                  ),
-
-                  buildGraduation(
-                    'Engenharia da Computação',
-                    'UTFPR - de fevereiro de 2019 até Julho de 2020.',
+                  ...graduations.map(
+                    (graduation) =>
+                        buildGraduation(graduation.name, graduation.period),
                   ),
                 ],
               ),

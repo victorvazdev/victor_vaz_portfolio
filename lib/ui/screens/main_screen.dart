@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-// Screens
-// import 'package:victor_vaz_portfolio/screens/main_screen.dart';
+// Data
+import 'package:victor_vaz_portfolio/data/victor_data.dart';
 
 // Widgets
-import 'package:victor_vaz_portfolio/widgets/academic_background_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/biography_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/certifications_list_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/contact_widget.dart';
-import 'package:victor_vaz_portfolio/widgets/professional_experience.dart';
-import 'package:victor_vaz_portfolio/widgets/header_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/academic_background_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/biography_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/certifications_list_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/contact/contact_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/professional_experience.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/header_widget.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class MainScreen extends StatefulWidget {
@@ -188,8 +188,12 @@ class _MainScreenState extends State<MainScreen> {
                                         Row(
                                           children: [
                                             const HeaderWidget(),
-                                            const Expanded(
-                                              child: BiographyWidget(),
+                                            Expanded(
+                                              child: BiographyWidget(
+                                                name: me.name,
+                                                position: me.position,
+                                                biography: me.biography,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -205,7 +209,11 @@ class _MainScreenState extends State<MainScreen> {
                                     : Column(
                                       children: [
                                         const HeaderWidget(),
-                                        const BiographyWidget(),
+                                        BiographyWidget(
+                                          name: me.name,
+                                          position: me.position,
+                                          biography: me.biography,
+                                        ),
                                       ],
                                     ),
                               ],
@@ -254,7 +262,9 @@ class _MainScreenState extends State<MainScreen> {
                       curve: Curves.easeIn,
                       child: Container(
                         key: _academicKey,
-                        child: const AcademicBackgroundWidget(),
+                        child: AcademicBackgroundWidget(
+                          graduations: me.graduations,
+                        ),
                       ),
                     ),
                   ),
@@ -275,7 +285,9 @@ class _MainScreenState extends State<MainScreen> {
                       curve: Curves.easeIn,
                       child: Container(
                         key: _certificationsKey,
-                        child: const CertificationsListWidget(),
+                        child: CertificationsListWidget(
+                          certifications: me.certifications,
+                        ),
                       ),
                     ),
                   ),
@@ -300,7 +312,13 @@ class _MainScreenState extends State<MainScreen> {
                       curve: Curves.easeIn,
                       child: Container(
                         key: _contactKey,
-                        child: const ContactWidget(),
+                        child: ContactWidget(
+                          email: me.email,
+                          phone: me.phone,
+                          linkedinUsername: me.linkedin,
+                          githubUsername: me.github,
+                          local: me.location,
+                        ),
                       ),
                     ),
                   ),
