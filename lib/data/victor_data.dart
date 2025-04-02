@@ -38,6 +38,7 @@ final VictorVaz me = VictorVaz(
     ),
   ],
   certifications: <Certification>[
+    Certification(name: 'Do Dart ao Flutter: criando seu primeiro aplicativo'),
     Certification(name: 'Formação: Domine a linguagem Swift'),
     Certification(name: 'Scrum Fundamentals Certified (SFC™)'),
     Certification(
