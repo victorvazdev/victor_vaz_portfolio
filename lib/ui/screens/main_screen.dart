@@ -9,6 +9,7 @@ import 'package:victor_vaz_portfolio/ui/widgets/biography_widget.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/certifications_list_widget.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/contact/contact_widget.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/hover_elevated_button.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/hover_title.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/professional_experience.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/header_widget.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -67,30 +68,16 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Align(
-          alignment: Alignment.centerLeft,
-          child: TextButton(
-            onPressed: () => _scrollTo(_headerKey),
-            child: SizedBox(
-              width: 124,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.code,
-                    size: 32,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    'Victor Vaz',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        title:
+            width < 800
+                ? null
+                : HoverTitle(onPressed: () => _scrollTo(_headerKey)),
         titleSpacing: width > 950 ? 72 : 32,
+        leading:
+            width < 800
+                ? HoverTitle(onPressed: () => _scrollTo(_headerKey))
+                : null,
+        leadingWidth: width < 800 ? 200 : null,
         actionsPadding: EdgeInsets.only(right: width > 1000 ? 72 : 32),
         actions:
             width < 800
