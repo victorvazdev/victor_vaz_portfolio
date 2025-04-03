@@ -59,6 +59,32 @@ class Themes {
         minimumSize: WidgetStatePropertyAll(Size(0, 70)),
       ),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return Constants.lightPrimaryColor;
+          }
+          return Constants.lightSecondaryColor;
+        }),
+        foregroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return Colors.white;
+          }
+          return Colors.grey.shade200;
+        }),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(9.0)),
+        ),
+        textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
+      ),
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -112,6 +138,32 @@ class Themes {
           RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         ),
         minimumSize: WidgetStatePropertyAll(Size(0, 70)),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return Colors.white12;
+          }
+          return Constants.darkCardBackground;
+        }),
+        foregroundColor: WidgetStateColor.resolveWith((
+          Set<WidgetState> states,
+        ) {
+          if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.pressed)) {
+            return Colors.white;
+          }
+          return Colors.white60;
+        }),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(9.0)),
+        ),
+        textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
       ),
     ),
   );

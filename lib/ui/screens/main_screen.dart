@@ -8,6 +8,7 @@ import 'package:victor_vaz_portfolio/ui/widgets/academic_background_widget.dart'
 import 'package:victor_vaz_portfolio/ui/widgets/biography_widget.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/certifications_list_widget.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/contact/contact_widget.dart';
+import 'package:victor_vaz_portfolio/ui/widgets/hover_elevated_button.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/professional_experience.dart';
 import 'package:victor_vaz_portfolio/ui/widgets/header_widget.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -90,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         titleSpacing: width > 950 ? 72 : 32,
-        actionsPadding: EdgeInsets.only(right: width > 950 ? 72 : 32),
+        actionsPadding: EdgeInsets.only(right: width > 1000 ? 72 : 32),
         actions:
             width < 800
                 ? <Widget>[
@@ -138,8 +139,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () => _scrollTo(_certificationsKey),
                     child: const Text('Certificações'),
                   ),
-                  TextButton(
-                    style: Theme.of(context).textButtonTheme.style,
+                  HoverElevatedButton(
                     onPressed: () => _scrollTo(_contactKey),
                     child: const Text('Contato'),
                   ),
