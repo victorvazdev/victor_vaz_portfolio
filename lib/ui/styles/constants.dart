@@ -7,5 +7,6 @@ class Constants {
   static const Color lightBackground = Color(0xFFFAFAFA);
   static const Color darkBackground = Color(0xFF121212);
   static const Color darkCardBackground = Color(0xFF1E1E1E);
+  static const Color darkNavigationBackground = Color.fromARGB(255, 23, 23, 23);
   static const double contactItemWidth = 256.0;
 }

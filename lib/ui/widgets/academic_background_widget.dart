@@ -12,8 +12,22 @@ class AcademicBackgroundWidget extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     Widget buildGraduation(String name, String period) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
+      return Container(
+        padding: const EdgeInsets.all(48),
+        decoration: BoxDecoration(
+          color: Theme.of(context).appBarTheme.backgroundColor,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(
+                context,
+              ).appBarTheme.shadowColor!.withValues(alpha: 0.1),
+              spreadRadius: 0,
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
         child: Row(
           children: [
             Icon(
@@ -67,7 +81,7 @@ class AcademicBackgroundWidget extends StatelessWidget {
         crossAxisAlignment:
             width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
-          Text(
+          SelectableText(
             sectionTitle,
             style:
                 width > 700
@@ -80,19 +94,13 @@ class AcademicBackgroundWidget extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          width > 700
-              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-              : const SizedBox.shrink(),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
 
-          width > 950
+          width > 1100
               ? SizedBox(
                 child: Column(
                   children: [
-                    width > 700
-                        ? SizedBox(
-                          height: MediaQuery.sizeOf(context).height * 0.05,
-                        )
-                        : const SizedBox.shrink(),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,20 +114,22 @@ class AcademicBackgroundWidget extends StatelessWidget {
                       ],
                     ),
 
-                    width > 700
-                        ? SizedBox(
-                          height: MediaQuery.sizeOf(context).height * 0.05,
-                        )
-                        : const SizedBox.shrink(),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
                   ],
                 ),
               )
               : Column(
                 children: [
-                  ...graduations.map(
-                    (graduation) =>
+                  ...graduations.map((graduation) {
+                    return Column(
+                      children: [
                         buildGraduation(graduation.name, graduation.period),
-                  ),
+                        SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.03,
+                        ),
+                      ],
+                    );
+                  }),
                 ],
               ),
         ],

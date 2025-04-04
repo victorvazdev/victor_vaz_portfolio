@@ -18,7 +18,7 @@ class CertificationsListWidget extends StatelessWidget {
         crossAxisAlignment:
             width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
-          Text(
+          SelectableText(
             'Certificações',
             style:
                 width > 700
@@ -32,10 +32,7 @@ class CertificationsListWidget extends StatelessWidget {
           ),
           width > 700 ? SizedBox.shrink() : SizedBox(width: double.infinity),
 
-          const SizedBox(height: 8),
-          width > 700
-              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-              : const SizedBox.shrink(),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
 
           Wrap(
             spacing: 8.0,

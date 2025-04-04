@@ -16,6 +16,7 @@ class BiographyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const String sectionTitle = 'Biografia';
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -52,10 +53,16 @@ class BiographyWidget extends StatelessWidget {
                   ],
                 ),
               )
-              : SelectableText(
-                sectionTitle,
-                style: Theme.of(context).textTheme.titleSmall,
-                textAlign: TextAlign.left,
+              : Column(
+                children: [
+                  SelectableText(
+                    sectionTitle,
+                    style: Theme.of(context).textTheme.titleSmall,
+                    textAlign: TextAlign.left,
+                  ),
+
+                  SizedBox(height: height * 0.03),
+                ],
               ),
 
           Padding(

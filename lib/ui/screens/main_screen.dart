@@ -15,7 +15,9 @@ import 'package:victor_vaz_portfolio/ui/widgets/header_widget.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final ValueNotifier<ThemeMode> themeNotifier;
+
+  const MainScreen({super.key, required this.themeNotifier});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -36,6 +38,20 @@ class _MainScreenState extends State<MainScreen> {
   bool _hasShownCertifications = false;
   bool _hasShownContact = false;
   bool _hasShownCopyrights = false;
+
+  void _cycleTheme(ThemeMode value) {
+    switch (value) {
+      case ThemeMode.system:
+        widget.themeNotifier.value = ThemeMode.system;
+        break;
+      case ThemeMode.light:
+        widget.themeNotifier.value = ThemeMode.light;
+        break;
+      case ThemeMode.dark:
+        widget.themeNotifier.value = ThemeMode.dark;
+        break;
+    }
+  }
 
   void _scrollTo(GlobalKey key) {
     Scrollable.ensureVisible(
@@ -69,39 +85,45 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title:
-            width < 800
+            width < 1000
                 ? null
                 : HoverTitle(onPressed: () => _scrollTo(_headerKey)),
         titleSpacing: width > 950 ? 72 : 32,
         leading:
-            width < 800
+            width < 1000
                 ? HoverTitle(onPressed: () => _scrollTo(_headerKey))
                 : null,
-        leadingWidth: width < 800 ? 200 : null,
+        leadingWidth: width < 1000 ? 200 : null,
         actionsPadding: EdgeInsets.only(right: width > 1000 ? 72 : 32),
         actions:
             width < 800
                 ? <Widget>[
-                  PopupMenuButton(
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                    icon: Icon(
-                      Icons.menu,
-                      color: Theme.of(context).iconTheme.color,
-                    ),
-                    onSelected: handleClick,
-                    itemBuilder: (context) {
-                      return {
-                        'E. Profissional',
-                        'F. Acadêmica',
-                        'Certificações',
-                        'Contato',
-                      }.map((choice) {
-                        return PopupMenuItem<String>(
-                          value: choice,
-                          child: Text(choice),
-                        );
-                      }).toList();
-                    },
+                  Row(
+                    children: [
+                      buildThemeSelector(context),
+                      PopupMenuButton(
+                        tooltip: 'Menu',
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        icon: Icon(
+                          Icons.menu,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
+                        onSelected: handleClick,
+                        itemBuilder: (context) {
+                          return {
+                            'E. Profissional',
+                            'F. Acadêmica',
+                            'Certificações',
+                            'Contato',
+                          }.map((choice) {
+                            return PopupMenuItem<String>(
+                              value: choice,
+                              child: Text(choice),
+                            );
+                          }).toList();
+                        },
+                      ),
+                    ],
                   ),
                 ]
                 : <Widget>[
@@ -130,13 +152,13 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () => _scrollTo(_contactKey),
                     child: const Text('Contato'),
                   ),
+                  buildThemeSelector(context),
                 ],
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           children: [
-            // Main content card
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
@@ -319,31 +341,96 @@ class _MainScreenState extends State<MainScreen> {
             width > 700
                 ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
                 : const SizedBox.shrink(),
-            VisibilityDetector(
-              key: Key('copyrights-visibility'),
-              onVisibilityChanged: (info) {
-                if (info.visibleFraction > 0 && !_hasShownCopyrights) {
-                  setState(() {
-                    _hasShownCopyrights = true;
-                  });
-                }
-              },
-              child: AnimatedOpacity(
-                opacity: _hasShownCopyrights ? 1.0 : 0.0,
-                duration: const Duration(seconds: 1),
-                curve: Curves.easeIn,
-                child: Center(
-                  child: SelectableText(
-                    '© 2025 por Victor Vaz',
-                    style: Theme.of(context).textTheme.bodyMedium,
+            Container(
+              height: width > 700 ? 128 : 64,
+              decoration: BoxDecoration(
+                color: Theme.of(context).appBarTheme.backgroundColor,
+                border: Border(
+                  top: BorderSide(
+                    color: Theme.of(context).appBarTheme.shadowColor!,
+                    width: 0.1,
+                  ),
+                ),
+              ),
+              child: VisibilityDetector(
+                key: Key('copyrights-visibility'),
+                onVisibilityChanged: (info) {
+                  if (info.visibleFraction > 0 && !_hasShownCopyrights) {
+                    setState(() {
+                      _hasShownCopyrights = true;
+                    });
+                  }
+                },
+                child: AnimatedOpacity(
+                  opacity: _hasShownCopyrights ? 1.0 : 0.0,
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.easeIn,
+                  child: Center(
+                    child: SelectableText(
+                      '© 2025 por Victor Vaz',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 16),
           ],
         ),
       ),
+    );
+  }
+
+  PopupMenuButton<ThemeMode> buildThemeSelector(BuildContext context) {
+    return PopupMenuButton<ThemeMode>(
+      tooltip: 'Selecionar tema',
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: SizedBox(
+        width: 48,
+        child: Icon(
+          Icons.mode_night_outlined,
+          color: Theme.of(context).iconTheme.color,
+        ),
+      ),
+      onSelected: (selectedMode) => _cycleTheme(selectedMode),
+      itemBuilder:
+          (context) => <PopupMenuEntry<ThemeMode>>[
+            PopupMenuItem<ThemeMode>(
+              value: ThemeMode.system,
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.computer,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  SizedBox(width: 8),
+                  Text('Sistema'),
+                ],
+              ),
+            ),
+            PopupMenuItem<ThemeMode>(
+              value: ThemeMode.light,
+              child: Row(
+                children: [
+                  Icon(Icons.sunny, color: Theme.of(context).iconTheme.color),
+                  SizedBox(width: 8),
+                  Text('Claro'),
+                ],
+              ),
+            ),
+            PopupMenuItem<ThemeMode>(
+              value: ThemeMode.dark,
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.dark_mode_rounded,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  SizedBox(width: 8),
+                  Text('Escuro'),
+                ],
+              ),
+            ),
+          ],
     );
   }
 }

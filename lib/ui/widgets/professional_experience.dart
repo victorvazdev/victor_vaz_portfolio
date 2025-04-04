@@ -8,8 +8,22 @@ class ProfessionalExperience extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     Widget buildExperience(String name, String period, String description) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
+      return Container(
+        padding: const EdgeInsets.all(48),
+        decoration: BoxDecoration(
+          color: Theme.of(context).appBarTheme.backgroundColor,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(
+                context,
+              ).appBarTheme.shadowColor!.withValues(alpha: 0.1),
+              spreadRadius: 0,
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
         child: Column(
           children: [
             Row(
@@ -76,7 +90,7 @@ class ProfessionalExperience extends StatelessWidget {
         crossAxisAlignment:
             width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
-          Text(
+          SelectableText(
             'Experiência Profissional',
             style:
                 width > 700
@@ -89,9 +103,7 @@ class ProfessionalExperience extends StatelessWidget {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          width > 700
-              ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-              : SizedBox.shrink(),
+          SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
 
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -104,9 +116,7 @@ class ProfessionalExperience extends StatelessWidget {
                 'Liderei a equipe de comunicação, coordenando a captação de imagens e vídeos de momentos-chave em eventos, gerenciando mídias sociais e realizando transmissões ao vivo no YouTube, garantindo uma comunicação eficiente e engajamento do público.',
               ),
 
-              width > 700
-                  ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-                  : SizedBox.shrink(),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
 
               buildExperience(
                 'Liderança da equipe de mídia',
@@ -116,9 +126,7 @@ class ProfessionalExperience extends StatelessWidget {
                 'Fui responsável pela distribuição de tarefas dentro da equipe, desenvolvimento e manutenção do website, gerenciamento de canal no YouTube e administração de mídias sociais, garantindo a criação de conteúdo estratégico e a otimização da presença digital da marca.',
               ),
 
-              width > 700
-                  ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-                  : SizedBox.shrink(),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             ],
           ),
         ],

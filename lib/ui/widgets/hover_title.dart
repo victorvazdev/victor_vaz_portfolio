@@ -22,21 +22,15 @@ class _HoverTitleState extends State<HoverTitle> {
         duration: Duration(milliseconds: 200),
         alignment: Alignment.center,
         child: TextButton(
+          style: Theme.of(context).textButtonTheme.style,
           onPressed: widget.onPressed,
           child: SizedBox(
             width: 124,
             child: Row(
               children: [
-                Icon(
-                  Icons.code,
-                  size: 32,
-                  color: Theme.of(context).iconTheme.color,
-                ),
+                Icon(Icons.code, size: 32),
                 const SizedBox(width: 8),
-                Text(
-                  'Victor Vaz',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
+                Text('Victor Vaz', style: TextStyle(fontSize: 18)),
               ],
             ),
           ),

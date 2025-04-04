@@ -6,6 +6,7 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     const String myPhoto = 'assets/images/victorvaz.webp';
 
     return Column(
@@ -21,6 +22,8 @@ class HeaderWidget extends StatelessWidget {
             )
             : Column(
               children: [
+                SizedBox(height: height * 0.03),
+
                 const CircleAvatar(
                   radius: 64,
                   backgroundImage: AssetImage(myPhoto),
@@ -35,6 +38,8 @@ class HeaderWidget extends StatelessWidget {
                   'Software Developer',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
+
+                SizedBox(height: height * 0.03),
               ],
             ),
       ],

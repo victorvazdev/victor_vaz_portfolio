@@ -66,7 +66,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                     : Theme.of(context).textTheme.titleSmall,
           ),
 
-          width > 700 ? SizedBox(height: height * 0.05) : SizedBox.shrink(),
+          SizedBox(height: height * 0.03),
 
           Padding(
             padding: const EdgeInsets.all(8.0),

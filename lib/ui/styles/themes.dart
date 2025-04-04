@@ -7,11 +7,11 @@ class Themes {
     primaryColor: Constants.lightTextColor,
     scaffoldBackgroundColor: Constants.lightBackground,
     appBarTheme: AppBarTheme(
-      backgroundColor: Constants.lightBackground,
+      backgroundColor: Colors.white,
       foregroundColor: Constants.lightBackground,
       surfaceTintColor: Constants.lightBackground,
       shadowColor: Colors.black,
-      elevation: 0,
+      elevation: 1,
     ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(color: Constants.lightTextColor),
@@ -53,9 +53,6 @@ class Themes {
         }),
         textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
         elevation: WidgetStatePropertyAll(0),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        ),
         minimumSize: WidgetStatePropertyAll(Size(0, 70)),
       ),
     ),
@@ -90,9 +87,9 @@ class Themes {
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.white,
-    scaffoldBackgroundColor: Constants.darkBackground,
+    scaffoldBackgroundColor: Colors.black87,
     appBarTheme: AppBarTheme(
-      backgroundColor: Constants.darkBackground,
+      backgroundColor: Constants.darkNavigationBackground,
       foregroundColor: Constants.darkBackground,
       surfaceTintColor: Constants.darkBackground,
       shadowColor: Colors.black54,
@@ -133,10 +130,8 @@ class Themes {
           }
           return Colors.white60;
         }),
+        textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
         elevation: WidgetStatePropertyAll(0),
-        shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        ),
         minimumSize: WidgetStatePropertyAll(Size(0, 70)),
       ),
     ),
