@@ -1,7 +1,7 @@
-import 'package:victor_vaz_portfolio/models/certification.dart';
-import 'package:victor_vaz_portfolio/models/experience.dart';
-import 'package:victor_vaz_portfolio/models/graduation.dart';
-import 'package:victor_vaz_portfolio/models/victor_vaz.dart';
+import 'package:victor_vaz_portfolio/app/models/certification.dart';
+import 'package:victor_vaz_portfolio/app/models/experience.dart';
+import 'package:victor_vaz_portfolio/app/models/graduation.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
 
 final VictorVaz me = VictorVaz(
   name: 'Victor Vaz',

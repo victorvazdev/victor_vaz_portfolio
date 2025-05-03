@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/helpers/format_phone_number.dart';
-import 'package:victor_vaz_portfolio/helpers/launch_url_helper.dart';
 import 'package:victor_vaz_portfolio/ui/styles/constants.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/email_link_widget.dart';
 
-class PhoneContact extends StatelessWidget {
-  const PhoneContact({
+class EmailContact extends StatelessWidget {
+  const EmailContact({
     super.key,
-    this.isShowingPhone = false,
+    this.isShowingEmail = false,
     required this.onChanged,
-    required this.phone,
+    required this.email,
   });
 
-  final String phone;
-  final bool isShowingPhone;
+  final String email;
+  final bool isShowingEmail;
   final ValueChanged<bool> onChanged;
 
   void _toggleVisibility() {
-    onChanged(!isShowingPhone);
-  }
-
-  void _launchPhone(BuildContext context) {
-    final Uri phoneUri = Uri(scheme: 'tel', path: phone);
-    launchUrlHelper(context, phoneUri);
+    onChanged(!isShowingEmail);
   }
 
   @override
@@ -31,22 +25,16 @@ class PhoneContact extends StatelessWidget {
       child: Row(
         children: [
           Icon(
-            Icons.phone,
+            Icons.email,
             color: Theme.of(context).iconTheme.color,
             size: 24,
-            semanticLabel: 'Contato por telefone',
+            semanticLabel: 'Contato por e-mail',
           ),
           const SizedBox(width: 8),
-          (isShowingPhone)
+          isShowingEmail
               ? Row(
                 children: [
-                  InkWell(
-                    onTap: () => _launchPhone(context),
-                    child: Text(
-                      formatPhoneNumber(phone),
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ),
+                  EmailLinkWidget(email: email),
                   SizedBox(
                     width: 30,
                     height: 16,
@@ -68,7 +56,7 @@ class PhoneContact extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'Telefone oculto',
+                      'E-mail oculto',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     SizedBox(

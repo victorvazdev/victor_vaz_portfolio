@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:victor_vaz_portfolio/helpers/launch_url_helper.dart';
+import 'package:victor_vaz_portfolio/app/helpers/launch_url_helper.dart';
 import 'package:victor_vaz_portfolio/ui/styles/constants.dart';
 
-class GithubContact extends StatelessWidget {
-  const GithubContact({super.key, required this.username});
+class LinkedinContact extends StatelessWidget {
+  const LinkedinContact({super.key, required this.username});
 
   final String username;
 
   void _launchWebsite(BuildContext context) {
-    final Uri url = Uri.parse('https://github.com/victorvazdev');
+    final Uri url = Uri.parse('https://www.linkedin.com/in/victorvazdev/');
     launchUrlHelper(context, url);
   }
 
@@ -20,8 +20,8 @@ class GithubContact extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset(
-            'assets/images/github-logo.svg',
-            semanticsLabel: 'Nome de usuário no GitHub',
+            'assets/images/linkedin-logo.svg',
+            semanticsLabel: 'Nome de usuário no LinkedIn',
             height: 24,
             colorFilter: ColorFilter.mode(
               Theme.of(context).iconTheme.color!,

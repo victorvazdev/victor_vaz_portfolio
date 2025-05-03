@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BiographyWidget extends StatelessWidget {
-  const BiographyWidget({
+class Biography extends StatelessWidget {
+  const Biography({
     super.key,
     required this.name,
     required this.position,

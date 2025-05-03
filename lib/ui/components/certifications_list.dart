@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/models/certification.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/certification_widget.dart';
+import 'package:victor_vaz_portfolio/app/models/certification.dart';
+import 'package:victor_vaz_portfolio/ui/components/certification_card.dart';
 
-class CertificationsListWidget extends StatelessWidget {
-  const CertificationsListWidget({super.key, required this.certifications});
+class CertificationsList extends StatelessWidget {
+  const CertificationsList({super.key, required this.certifications});
 
   final List<Certification> certifications;
 
@@ -38,7 +38,7 @@ class CertificationsListWidget extends StatelessWidget {
             spacing: 8.0,
             runSpacing: 8.0,
             children: [
-              ...certifications.map((e) => CertificationWidget(name: e.name)),
+              ...certifications.map((e) => CertificationCard(name: e.name)),
             ],
           ),
         ],

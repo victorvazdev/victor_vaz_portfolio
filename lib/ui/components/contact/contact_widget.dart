@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/contact/email_contact.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/contact/github_contact.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/contact/linkedin_contact.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/contact/local_contact.dart';
-import 'package:victor_vaz_portfolio/ui/widgets/contact/phone_contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/email_contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/github_contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/linkedin_contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/local_contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/phone_contact.dart';
 
 class ContactWidget extends StatefulWidget {
+  // TODO: Optimize the contact component
   const ContactWidget({
     super.key,
     required this.email,

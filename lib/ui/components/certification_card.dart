@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CertificationWidget extends StatefulWidget {
-  const CertificationWidget({super.key, required this.name});
+class CertificationCard extends StatefulWidget {
+  const CertificationCard({super.key, required this.name});
 
   final String name;
 
   @override
-  State<CertificationWidget> createState() => _CertificationWidgetState();
+  State<CertificationCard> createState() => _CertificationCardState();
 }
 
-class _CertificationWidgetState extends State<CertificationWidget> {
+class _CertificationCardState extends State<CertificationCard> {
   bool _isHovered = false;
 
   @override

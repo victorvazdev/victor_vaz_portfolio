@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/models/graduation.dart';
+import 'package:victor_vaz_portfolio/app/models/graduation.dart';
 
-class AcademicBackgroundWidget extends StatelessWidget {
-  const AcademicBackgroundWidget({super.key, required this.graduations});
+class AcademicBackground extends StatelessWidget {
+  const AcademicBackground({super.key, required this.graduations});
 
   final List<Graduation> graduations;
 

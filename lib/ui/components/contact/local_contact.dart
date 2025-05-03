@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/helpers/launch_url_helper.dart';
+import 'package:victor_vaz_portfolio/app/helpers/launch_url_helper.dart';
 import 'package:victor_vaz_portfolio/ui/styles/constants.dart';
 
 class LocalContact extends StatelessWidget {
