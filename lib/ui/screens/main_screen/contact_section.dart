@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
-import 'package:victor_vaz_portfolio/ui/components/contact/contact_widget.dart';
+import 'package:victor_vaz_portfolio/app/models/contact.dart';
+import 'package:victor_vaz_portfolio/ui/components/contact/contact_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ContactSection extends StatefulWidget {
@@ -14,6 +15,27 @@ class ContactSection extends StatefulWidget {
 
 class _ContactSectionState extends State<ContactSection> {
   bool _hasShown = false;
+
+  Contact linkedin = Contact(
+    text: me.linkedin,
+    asset: 'assets/images/linkedin-logo.svg',
+    link: 'https://www.linkedin.com/in/victorvazdev/',
+    semanticLabel: 'Nome de usuário no LinkedIn',
+  );
+
+  Contact github = Contact(
+    text: me.github,
+    asset: 'assets/images/github-logo.svg',
+    link: 'https://github.com/victorvazdev',
+    semanticLabel: 'Nome de usuário no GitHub',
+  );
+
+  Contact local = Contact(
+    text: me.location,
+    link: 'https://maps.app.goo.gl/xTcMRQEX93AVQpa5A',
+    icon: Icons.place,
+    semanticLabel: 'Local de habitação',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +54,12 @@ class _ContactSectionState extends State<ContactSection> {
         curve: Curves.easeIn,
         child: Container(
           key: widget.sectionKey,
-          child: ContactWidget(
+          child: ContactList(
             email: me.email,
             phone: me.phone,
-            linkedinUsername: me.linkedin,
-            githubUsername: me.github,
-            local: me.location,
+            linkedin: linkedin,
+            github: github,
+            local: local,
           ),
         ),
       ),

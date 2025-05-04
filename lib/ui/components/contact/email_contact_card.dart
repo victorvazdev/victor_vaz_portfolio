@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/helpers/format_phone_number.dart';
-import 'package:victor_vaz_portfolio/app/helpers/launch_url_helper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:victor_vaz_portfolio/ui/styles/constants.dart';
 
-class PhoneContact extends StatelessWidget {
-  const PhoneContact({
-    super.key,
-    this.isShowingPhone = false,
-    required this.onChanged,
-    required this.phone,
-  });
+class EmailContactCard extends StatefulWidget {
+  const EmailContactCard({super.key, required this.email});
 
-  final String phone;
-  final bool isShowingPhone;
-  final ValueChanged<bool> onChanged;
+  final String email;
+
+  @override
+  State<EmailContactCard> createState() => _EmailContactCardState();
+}
+
+class _EmailContactCardState extends State<EmailContactCard> {
+  bool isShowing = false;
 
   void _toggleVisibility() {
-    onChanged(!isShowingPhone);
+    setState(() {
+      isShowing = !isShowing;
+    });
   }
 
-  void _launchPhone(BuildContext context) {
-    final Uri phoneUri = Uri(scheme: 'tel', path: phone);
-    launchUrlHelper(context, phoneUri);
+  Future<void> _launchEmail() async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: widget.email,
+      query:
+          'subject=${Uri.encodeComponent('')}&body=${Uri.encodeComponent('')}',
+    );
+
+    if (!await launchUrl(emailUri)) {
+      throw 'Could not launch $emailUri';
+    }
   }
 
   @override
@@ -31,19 +40,19 @@ class PhoneContact extends StatelessWidget {
       child: Row(
         children: [
           Icon(
-            Icons.phone,
+            Icons.email,
             color: Theme.of(context).iconTheme.color,
             size: 24,
-            semanticLabel: 'Contato por telefone',
+            semanticLabel: 'Contato por e-mail',
           ),
           const SizedBox(width: 8),
-          (isShowingPhone)
+          isShowing
               ? Row(
                 children: [
                   InkWell(
-                    onTap: () => _launchPhone(context),
+                    onTap: _launchEmail,
                     child: Text(
-                      formatPhoneNumber(phone),
+                      'contato@victorvaz.dev.br',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
@@ -68,7 +77,7 @@ class PhoneContact extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'Telefone oculto',
+                      'E-mail oculto',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     SizedBox(
