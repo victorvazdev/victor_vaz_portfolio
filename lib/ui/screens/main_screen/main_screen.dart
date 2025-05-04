@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Widgets
 import 'package:victor_vaz_portfolio/ui/components/hover_elevated_button.dart';
 import 'package:victor_vaz_portfolio/ui/components/hover_title.dart';
+import 'package:victor_vaz_portfolio/ui/components/i_frame_web_view.dart';
 import 'package:victor_vaz_portfolio/ui/components/theme_selector.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/academic_section.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/certifications_section.dart';
@@ -155,6 +156,19 @@ class _MainScreenState extends State<MainScreen> {
               child: Column(
                 children: [
                   HeaderSection(sectionKey: _headerKey),
+                  ElevatedButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder:
+                            (context) => IFrameWebView(
+                              url: 'https://e-greja-89c9b.web.app/avisos',
+                            ),
+                      );
+                    },
+                    child: Text('Praise God!'),
+                  ),
                   const SizedBox(height: 8),
                   ExperienceSection(sectionKey: _experienceKey),
                   AcademicSection(sectionKey: _academicKey),
