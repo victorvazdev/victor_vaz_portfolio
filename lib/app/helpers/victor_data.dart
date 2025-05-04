@@ -7,7 +7,7 @@ final VictorVaz me = VictorVaz(
   name: 'Victor Vaz',
   position: 'Software Developer',
   biography:
-      'Estudante de Sistemas de Informação e Desenvolvimento Mobile, apaixonado por tecnologia e aprendizado contínuo. Busco constantemente explorar novas tecnologias e aprimorar meu conhecimento em soluções consolidadas no mercado. Com uma mentalidade inovadora e foco em eficiência, estou sempre em busca de desafios que me permitam evoluir e contribuir significativamente para os projetos em que atuo.',
+      'Sou um desenvolvedor de software em formação com foco em desenvolvimento mobile e web, apaixonado por tecnologia, design limpo e soluções eficientes. Atualmente curso Sistemas de Informação, e venho me especializando em Flutter, explorando seus recursos para criação de apps modernos, performáticos e responsivo.',
   email: 'contato@victorvaz.dev.br',
   phone: '+5546991121927',
   linkedin: 'in/victorvazdev',

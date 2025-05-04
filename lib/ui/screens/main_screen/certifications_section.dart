@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
-import 'package:victor_vaz_portfolio/ui/components/certifications_list.dart';
+import 'package:victor_vaz_portfolio/ui/components/certification_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class CertificationsSection extends StatefulWidget {

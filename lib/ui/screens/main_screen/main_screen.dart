@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/models/project.dart';
 
 // Widgets
 import 'package:victor_vaz_portfolio/ui/components/hover_elevated_button.dart';
 import 'package:victor_vaz_portfolio/ui/components/hover_title.dart';
-import 'package:victor_vaz_portfolio/ui/components/project_card.dart';
 import 'package:victor_vaz_portfolio/ui/components/theme_selector.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/academic_section.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/certifications_section.dart';
@@ -12,6 +10,7 @@ import 'package:victor_vaz_portfolio/ui/screens/main_screen/contact_section.dart
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/experience_section.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/footer_section.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/header_section.dart';
+import 'package:victor_vaz_portfolio/ui/screens/main_screen/projects_section.dart';
 
 class MainScreen extends StatefulWidget {
   final ValueNotifier<ThemeMode> themeNotifier;
@@ -26,6 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   final ScrollController _scrollController = ScrollController();
 
   final GlobalKey _headerKey = GlobalKey();
+  final GlobalKey _projectsKey = GlobalKey();
   final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _academicKey = GlobalKey();
   final GlobalKey _certificationsKey = GlobalKey();
@@ -157,15 +157,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Column(
                 children: [
                   HeaderSection(sectionKey: _headerKey),
-                  ProjectCard(
-                    project: Project(
-                      name: 'Banco d’Ouro',
-                      description: 'description',
-                      image: 'assets/images/banco-douro.jpg',
-                      url: 'https://banco-d-ouro.web.app/',
-                    ),
-                  ),
-                  const SizedBox(height: 8),
+                  ProjectsSection(sectionKey: _projectsKey),
                   ExperienceSection(sectionKey: _experienceKey),
                   AcademicSection(sectionKey: _academicKey),
                   CertificationsSection(sectionKey: _certificationsKey),

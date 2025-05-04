@@ -12,7 +12,8 @@ class ProjectCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: const EdgeInsets.all(48),
+      // margin: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(48.0),
       decoration: BoxDecoration(
         color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(6),
@@ -29,7 +30,7 @@ class ProjectCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.asset('assets/images/banco-douro.jpg', width: 200),
+          Image.asset(project.image, width: 200),
           SizedBox(height: 5),
           width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
           SelectableText(
