@@ -20,7 +20,7 @@ class ProjectList extends StatelessWidget {
             project: Project(
               name: 'Banco d’Ouro',
               description:
-                  'Flutter Banco d’Ouro é um aplicativo Flutter que simula um sistema bancário com interface gráfica. Permite ao usuário visualizar contas, cadastrar novas, e realizar transações financeiras com persistência de dados via GitHub Gists API. O sistema inclui autenticação visual simples, feedback visual com SnackBar, FutureBuilder, e organização com StreamController.',
+                  'Banco d’Ouro é um aplicativo Flutter que simula um sistema bancário com interface gráfica. Permite ao usuário visualizar contas, cadastrar novas, e realizar transações financeiras com persistência de dados via GitHub Gists API. O sistema inclui autenticação visual simples, feedback visual com SnackBar, FutureBuilder, e organização com StreamController.',
               image: 'assets/images/banco-douro.jpg',
               url: 'https://banco-d-ouro.web.app/',
             ),
