@@ -44,22 +44,6 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 
 Acesse em: [victorvaz.dev](https://victorvaz.dev) (Disponível em versão web e mobile)
 
-## 📁 Estrutura de Pastas
-
-```
-lib/
-├── app.dart
-├── data/
-│   └── victor_data.dart
-├── models/
-├── ui/
-│   ├── screens/
-│   ├── styles/
-│   └── widgets/
-├── helpers/
-└── main.dart
-```
-
 ## 👤 Autor
 
 **Victor Vaz**  
