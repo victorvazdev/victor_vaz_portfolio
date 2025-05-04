@@ -12,8 +12,8 @@ class IFrameWebView extends StatelessWidget {
           web.HTMLIFrameElement()
             ..src = url
             ..style.border = 'none'
-            ..width = '400'
-            ..height = '667',
+            ..style.width = '100%'
+            ..style.height = '100%',
     );
   }
 
