@@ -55,8 +55,8 @@ class _MainScreenState extends State<MainScreen> {
 
   void handleClick(String value) {
     switch (value) {
-      case 'E. Profissional':
-        _scrollTo(_experienceKey);
+      case 'Projetos':
+        _scrollTo(_projectsKey);
         break;
       case 'F. Acadêmica':
         _scrollTo(_academicKey);
@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                         onSelected: handleClick,
                         itemBuilder: (context) {
                           return {
-                            'E. Profissional',
+                            'Projetos',
                             'F. Acadêmica',
                             'Certificações',
                             'Contato',
@@ -121,12 +121,8 @@ class _MainScreenState extends State<MainScreen> {
                 : <Widget>[
                   TextButton(
                     style: Theme.of(context).textButtonTheme.style,
-                    onPressed: () => _scrollTo(_experienceKey),
-                    child: Text(
-                      width < 900
-                          ? 'E. Profissional'
-                          : 'Experiência Profissional',
-                    ),
+                    onPressed: () => _scrollTo(_projectsKey),
+                    child: Text('Projetos'),
                   ),
                   TextButton(
                     style: Theme.of(context).textButtonTheme.style,
