@@ -25,6 +25,8 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 ## 🧩 Funcionalidades
 
 - 🧑‍💼 Biografia
+- 💻 Projetos
+- 💽 Projetos Ao Vivo
 - 📚 Formação Acadêmica
 - 💼 Experiências Profissionais
 - 📜 Certificações
