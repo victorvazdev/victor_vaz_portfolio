@@ -96,7 +96,7 @@ class ProjectCard extends StatelessWidget {
                     child: Text('Executar App'),
                   ),
               SizedBox(width: 9),
-              width > 750
+              width >= 750
                   ? ElevatedButton(
                     onPressed:
                         () =>
