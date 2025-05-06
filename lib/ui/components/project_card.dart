@@ -13,8 +13,9 @@ class ProjectCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      width: 500,
-      padding: const EdgeInsets.all(48.0),
+      margin:
+          width > 1000 ? const EdgeInsets.symmetric(horizontal: 48.0) : null,
+      padding: EdgeInsets.all(width > 700 ? 48.0 : 16),
       decoration: BoxDecoration(
         color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(6),
@@ -30,6 +31,7 @@ class ProjectCard extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(project.image, width: 200),
           SizedBox(height: 5),

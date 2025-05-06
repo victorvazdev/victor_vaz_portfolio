@@ -41,6 +41,7 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 - [url_launcher](https://pub.dev/packages/url_launcher)
 - [visibility_detector](https://pub.dev/packages/visibility_detector)
 - SVG support via `flutter_svg`
+- [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator)
 
 ## 🚀 Como Executar
 
