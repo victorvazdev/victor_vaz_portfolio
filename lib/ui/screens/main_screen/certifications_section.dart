@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
 import 'package:victor_vaz_portfolio/ui/components/certification_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -30,10 +29,7 @@ class _CertificationsSectionState extends State<CertificationsSection> {
         opacity: _hasShown ? 1.0 : 0.0,
         duration: const Duration(seconds: 1),
         curve: Curves.easeIn,
-        child: Container(
-          key: widget.sectionKey,
-          child: CertificationsList(certifications: me.certifications),
-        ),
+        child: Container(key: widget.sectionKey, child: CertificationsList()),
       ),
     );
   }

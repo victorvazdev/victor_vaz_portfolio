@@ -1,6 +1,7 @@
 import 'package:victor_vaz_portfolio/app/models/certification.dart';
 import 'package:victor_vaz_portfolio/app/models/experience.dart';
 import 'package:victor_vaz_portfolio/app/models/graduation.dart';
+import 'package:victor_vaz_portfolio/app/models/project.dart';
 
 class VictorVaz {
   String name;
@@ -14,6 +15,7 @@ class VictorVaz {
   List<Graduation> graduations;
   List<Experience> experiences;
   List<Certification> certifications;
+  List<Project> projects;
 
   VictorVaz({
     required this.name,
@@ -27,5 +29,6 @@ class VictorVaz {
     required this.graduations,
     required this.experiences,
     required this.certifications,
+    required this.projects,
   });
 }
