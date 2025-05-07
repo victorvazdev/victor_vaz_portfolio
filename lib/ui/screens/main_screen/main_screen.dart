@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
+import 'package:victor_vaz_portfolio/app/services/victor_vaz_data_service.dart';
 
 // Widgets
 import 'package:victor_vaz_portfolio/ui/components/hover_elevated_button.dart';
@@ -30,6 +32,9 @@ class _MainScreenState extends State<MainScreen> {
   final GlobalKey _academicKey = GlobalKey();
   final GlobalKey _certificationsKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
+
+  final Future<VictorVaz> _futureVictorVazData =
+      VictorVazDataService().getAll();
 
   void _cycleTheme(ThemeMode value) {
     switch (value) {
@@ -148,6 +153,25 @@ class _MainScreenState extends State<MainScreen> {
         controller: _scrollController,
         child: Column(
           children: [
+            FutureBuilder(
+              future: _futureVictorVazData,
+              builder: (context, snapshot) {
+                switch (snapshot.connectionState) {
+                  case ConnectionState.none:
+                    return Center(child: CircularProgressIndicator());
+                  case ConnectionState.waiting:
+                  case ConnectionState.active:
+                  case ConnectionState.done:
+                    if (snapshot.data == null) {
+                      return Center(child: Text('Nenhum dado recebido.'));
+                    }
+
+                    VictorVaz data = snapshot.data!;
+
+                    return Center(child: Text(data.name));
+                }
+              },
+            ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
