@@ -39,6 +39,7 @@ final VictorVaz me = VictorVaz(
     ),
   ],
   certifications: <Certification>[
+    Certification(name: 'EF Level 8 - Intermediate - CEFR Level B1'),
     Certification(
       name:
           'Formação Dart: cursos para aprender a linguagem utilizada no Flutter',

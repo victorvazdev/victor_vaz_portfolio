@@ -47,6 +47,75 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 
 Acesse em: [victorvaz.dev](https://victorvaz.dev) (Disponível em versão web e mobile)
 
+## 📂 Estrutura do Projeto
+
+```
+victor_vaz_portfolio/
+├── analysis_options.yaml
+├── firebase.json
+├── pubspec.lock
+├── pubspec.yaml
+├── README.md
+├── assets/
+│   ├── images/
+│   │   ├── AluraViagens.jpg
+│   │   ├── banco-douro.jpg
+│   │   ├── BBQuotes.jpg
+│   │   ├── ChefDelivery.jpg
+│   │   ├── cinetopia.jpg
+│   │   ├── ConversorDeMoedas.jpg
+│   │   ├── Dex3.jpg
+│   │   ├── github-logo.svg
+│   │   ├── HPTrivia.jpg
+│   │   ├── iQuiz.jpg
+│   │   ├── JPApexPredator.jpg
+│   │   ├── linkedin-logo.svg
+│   │   └── victorvaz.webp
+├── lib/
+│   ├── main.dart
+│   ├── app/
+│   │   ├── helpers/
+│   │   │   ├── format_phone_number.dart
+│   │   │   ├── launch_url_helper.dart
+│   │   │   └── victor_data.dart
+│   │   ├── models/
+│   │   │   ├── certification.dart
+│   │   │   ├── contact.dart
+│   │   │   ├── experience.dart
+│   │   │   ├── graduation.dart
+│   │   │   ├── project.dart
+│   │   │   └── victor_vaz.dart
+│   ├── ui/
+│   │   ├── components/
+│   │   │   ├── academic_background.dart
+│   │   │   ├── biography.dart
+│   │   │   ├── certification_card.dart
+│   │   │   ├── certification_list.dart
+│   │   │   ├── hover_elevated_button.dart
+│   │   │   ├── hover_title.dart
+│   │   │   ├── i_frame_web_view.dart
+│   │   │   ├── identification.dart
+│   │   │   ├── professional_experience.dart
+│   │   │   ├── project_card.dart
+│   │   │   ├── project_list.dart
+│   │   │   ├── theme_selector.dart
+│   │   │   └── contact/
+│   │   ├── screens/
+│   │   │   └── main_screen/
+│   │   └── styles/
+│   │       ├── constants.dart
+│   │       └── themes.dart
+├── web/
+│   ├── favicon.png
+│   ├── index.html
+│   ├── manifest.json
+│   └── icons/
+│       ├── Icon-192.png
+│       ├── Icon-512.png
+│       ├── Icon-maskable-192.png
+│       └── Icon-maskable-512.png
+```
+
 ## 👤 Autor
 
 **Victor Vaz**  
