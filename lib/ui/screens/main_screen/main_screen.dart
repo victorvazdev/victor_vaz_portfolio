@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
-import 'package:victor_vaz_portfolio/app/services/victor_vaz_data_service.dart';
+import 'package:victor_vaz_portfolio/app/view_models/victor_vaz_data_view_model.dart';
 
 // Widgets
 import 'package:victor_vaz_portfolio/ui/components/hover_elevated_button.dart';
@@ -33,8 +32,8 @@ class _MainScreenState extends State<MainScreen> {
   final GlobalKey _certificationsKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
-  final Future<VictorVaz> _futureVictorVazData =
-      VictorVazDataService().getAll();
+  final VictorVazDataViewModel victorVazDataViewModel =
+      VictorVazDataViewModel();
 
   void _cycleTheme(ThemeMode value) {
     switch (value) {
@@ -150,7 +149,7 @@ class _MainScreenState extends State<MainScreen> {
                 ],
       ),
       body: FutureBuilder(
-        future: _futureVictorVazData,
+        future: victorVazDataViewModel.getData(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -162,8 +161,6 @@ class _MainScreenState extends State<MainScreen> {
                 return Center(child: Text('Nenhum dado recebido.'));
               }
 
-              VictorVaz data = snapshot.data!;
-
               return SingleChildScrollView(
                 controller: _scrollController,
                 child: Column(
@@ -172,16 +169,25 @@ class _MainScreenState extends State<MainScreen> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       child: Column(
                         children: [
-                          HeaderSection(sectionKey: _headerKey, data: data),
-                          ProjectsSection(sectionKey: _projectsKey, data: data),
+                          HeaderSection(
+                            sectionKey: _headerKey,
+                            data: victorVazDataViewModel.data,
+                          ),
+                          ProjectsSection(
+                            sectionKey: _projectsKey,
+                            data: victorVazDataViewModel.data,
+                          ),
                           ExperienceSection(
                             sectionKey: _experienceKey,
-                            data: data,
+                            data: victorVazDataViewModel.data,
                           ),
-                          AcademicSection(sectionKey: _academicKey, data: data),
+                          AcademicSection(
+                            sectionKey: _academicKey,
+                            data: victorVazDataViewModel.data,
+                          ),
                           CertificationsSection(
                             sectionKey: _certificationsKey,
-                            data: data,
+                            data: victorVazDataViewModel.data,
                           ),
                           width > 700
                               ? SizedBox(
@@ -189,7 +195,10 @@ class _MainScreenState extends State<MainScreen> {
                                     MediaQuery.sizeOf(context).height * 0.05,
                               )
                               : const SizedBox.shrink(),
-                          ContactSection(sectionKey: _contactKey, data: data),
+                          ContactSection(
+                            sectionKey: _contactKey,
+                            data: victorVazDataViewModel.data,
+                          ),
                         ],
                       ),
                     ),

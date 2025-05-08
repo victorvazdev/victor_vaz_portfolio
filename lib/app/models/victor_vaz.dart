@@ -117,6 +117,23 @@ class VictorVaz {
     );
   }
 
+  factory VictorVaz.empty() {
+    return VictorVaz(
+      name: '',
+      position: '',
+      biography: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
+      location: '',
+      graduations: <Graduation>[],
+      experiences: <Experience>[],
+      certifications: <Certification>[],
+      projects: <Project>[],
+    );
+  }
+
   String toJson() => json.encode(toMap());
 
   factory VictorVaz.fromJson(String source) =>

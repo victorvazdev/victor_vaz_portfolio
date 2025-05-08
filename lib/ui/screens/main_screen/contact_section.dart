@@ -22,11 +22,6 @@ class _ContactSectionState extends State<ContactSection> {
   bool _hasShown = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
       key: const Key('contact-visibility'),
