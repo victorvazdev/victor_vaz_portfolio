@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
 import 'package:victor_vaz_portfolio/ui/components/academic_background.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AcademicSection extends StatefulWidget {
+  final VictorVaz data;
   final GlobalKey sectionKey;
 
-  const AcademicSection({super.key, required this.sectionKey});
+  const AcademicSection({
+    super.key,
+    required this.sectionKey,
+    required this.data,
+  });
 
   @override
   State<AcademicSection> createState() => _AcademicSectionState();
@@ -32,7 +37,7 @@ class _AcademicSectionState extends State<AcademicSection> {
         curve: Curves.easeIn,
         child: Container(
           key: widget.sectionKey,
-          child: AcademicBackground(graduations: me.graduations),
+          child: AcademicBackground(graduations: widget.data.graduations),
         ),
       ),
     );

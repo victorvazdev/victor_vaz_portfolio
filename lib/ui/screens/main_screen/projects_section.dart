@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/ui/components/project_list.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
+import 'package:victor_vaz_portfolio/ui/components/projects/project_list.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ProjectsSection extends StatefulWidget {
+  final VictorVaz data;
   final GlobalKey sectionKey;
 
-  const ProjectsSection({super.key, required this.sectionKey});
+  const ProjectsSection({
+    super.key,
+    required this.sectionKey,
+    required this.data,
+  });
 
   @override
   State<ProjectsSection> createState() => _ProjectsSectionState();
@@ -61,7 +67,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                     ? SizedBox.shrink()
                     : SizedBox(width: double.infinity),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-                ProjectList(),
+                ProjectList(projectsData: widget.data.projects),
               ],
             ),
           ),

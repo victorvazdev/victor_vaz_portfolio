@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
 import 'package:victor_vaz_portfolio/ui/components/biography.dart';
 import 'package:victor_vaz_portfolio/ui/components/identification.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class HeaderSection extends StatefulWidget {
+  final VictorVaz data;
   final GlobalKey sectionKey;
 
-  const HeaderSection({super.key, required this.sectionKey});
+  const HeaderSection({
+    super.key,
+    required this.sectionKey,
+    required this.data,
+  });
 
   @override
   State<HeaderSection> createState() => _HeaderSectionState();
@@ -51,9 +56,9 @@ class _HeaderSectionState extends State<HeaderSection> {
                               const Identification(),
                               Expanded(
                                 child: Biography(
-                                  name: me.name,
-                                  position: me.position,
-                                  biography: me.biography,
+                                  name: widget.data.name,
+                                  position: widget.data.position,
+                                  biography: widget.data.biography,
                                 ),
                               ),
                             ],
@@ -67,9 +72,9 @@ class _HeaderSectionState extends State<HeaderSection> {
                         children: [
                           const Identification(),
                           Biography(
-                            name: me.name,
-                            position: me.position,
-                            biography: me.biography,
+                            name: widget.data.name,
+                            position: widget.data.position,
+                            biography: widget.data.biography,
                           ),
                         ],
                       ),

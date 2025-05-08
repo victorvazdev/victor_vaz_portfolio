@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:victor_vaz_portfolio/app/helpers/victor_data.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:victor_vaz_portfolio/ui/components/project_card.dart';
+import 'package:victor_vaz_portfolio/app/models/project.dart';
+import 'package:victor_vaz_portfolio/ui/components/projects/project_card.dart';
 
 class ProjectList extends StatefulWidget {
-  const ProjectList({super.key});
+  final List<Project> projectsData;
+  const ProjectList({super.key, required this.projectsData});
 
   @override
   State<ProjectList> createState() => _ProjectListState();
@@ -46,7 +47,7 @@ class _ProjectListState extends State<ProjectList> {
                   final prevPage =
                       _currentPage > 0
                           ? _currentPage - 1
-                          : me.projects.length - 1;
+                          : widget.projectsData.length - 1;
                   _controller.animateToPage(
                     prevPage,
                     duration: const Duration(microseconds: 300),
@@ -58,16 +59,16 @@ class _ProjectListState extends State<ProjectList> {
               Expanded(
                 child: PageView.builder(
                   controller: _controller,
-                  itemCount: me.projects.length,
+                  itemCount: widget.projectsData.length,
                   itemBuilder:
                       (context, index) =>
-                          ProjectCard(project: me.projects[index]),
+                          ProjectCard(project: widget.projectsData[index]),
                 ),
               ),
               IconButton(
                 onPressed: () {
                   final nextPage =
-                      _currentPage < me.projects.length - 1
+                      _currentPage < widget.projectsData.length - 1
                           ? _currentPage + 1
                           : 0;
                   _controller.animateToPage(
@@ -84,7 +85,7 @@ class _ProjectListState extends State<ProjectList> {
         const SizedBox(height: 16),
         SmoothPageIndicator(
           controller: _controller,
-          count: me.projects.length,
+          count: widget.projectsData.length,
           effect: WormEffect(
             dotHeight: 10,
             dotWidth: 10,

@@ -149,55 +149,63 @@ class _MainScreenState extends State<MainScreen> {
                   ThemeSelector(onThemeSelected: _cycleTheme),
                 ],
       ),
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          children: [
-            FutureBuilder(
-              future: _futureVictorVazData,
-              builder: (context, snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.none:
-                    return Center(child: CircularProgressIndicator());
-                  case ConnectionState.waiting:
-                  case ConnectionState.active:
-                  case ConnectionState.done:
-                    if (snapshot.data == null) {
-                      return Center(child: Text('Nenhum dado recebido.'));
-                    }
+      body: FutureBuilder(
+        future: _futureVictorVazData,
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+            case ConnectionState.active:
+              return Center(child: CircularProgressIndicator());
+            case ConnectionState.done:
+              if (snapshot.data == null) {
+                return Center(child: Text('Nenhum dado recebido.'));
+              }
 
-                    VictorVaz data = snapshot.data!;
+              VictorVaz data = snapshot.data!;
 
-                    return Center(child: Text(data.name));
-                }
-              },
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Column(
-                children: [
-                  HeaderSection(sectionKey: _headerKey),
-                  ProjectsSection(sectionKey: _projectsKey),
-                  ExperienceSection(sectionKey: _experienceKey),
-                  AcademicSection(sectionKey: _academicKey),
-                  CertificationsSection(sectionKey: _certificationsKey),
-                  width > 700
-                      ? SizedBox(
-                        height: MediaQuery.sizeOf(context).height * 0.05,
-                      )
-                      : const SizedBox.shrink(),
-                  ContactSection(sectionKey: _contactKey),
-                ],
-              ),
-            ),
-            const SizedBox(height: 32),
-            // Footer
-            width > 700
-                ? SizedBox(height: MediaQuery.sizeOf(context).height * 0.05)
-                : const SizedBox.shrink(),
-            FooterSection(),
-          ],
-        ),
+              return SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: Column(
+                        children: [
+                          HeaderSection(sectionKey: _headerKey, data: data),
+                          ProjectsSection(sectionKey: _projectsKey, data: data),
+                          ExperienceSection(
+                            sectionKey: _experienceKey,
+                            data: data,
+                          ),
+                          AcademicSection(sectionKey: _academicKey, data: data),
+                          CertificationsSection(
+                            sectionKey: _certificationsKey,
+                            data: data,
+                          ),
+                          width > 700
+                              ? SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.05,
+                              )
+                              : const SizedBox.shrink(),
+                          ContactSection(sectionKey: _contactKey, data: data),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 32),
+                    // Footer
+                    width > 700
+                        ? SizedBox(
+                          height: MediaQuery.sizeOf(context).height * 0.05,
+                        )
+                        : const SizedBox.shrink(),
+                    FooterSection(),
+                  ],
+                ),
+              );
+          }
+        },
       ),
     );
   }

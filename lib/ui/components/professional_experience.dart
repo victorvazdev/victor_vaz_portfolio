@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/app/models/experience.dart';
 
 class ProfessionalExperience extends StatelessWidget {
-  const ProfessionalExperience({super.key});
+  final List<Experience> experienceData;
+
+  const ProfessionalExperience({super.key, required this.experienceData});
 
   @override
   Widget build(BuildContext context) {
@@ -108,25 +111,14 @@ class ProfessionalExperience extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildExperience(
-                'Liderança da equipe de comunicação',
-
-                'Lagoinnha Buritis - de março de 2023 até outubro de 2023',
-
-                'Liderei a equipe de comunicação, coordenando a captação de imagens e vídeos de momentos-chave em eventos, gerenciando mídias sociais e realizando transmissões ao vivo no YouTube, garantindo uma comunicação eficiente e engajamento do público.',
+              ...experienceData.map(
+                (e) => Column(
+                  children: [
+                    buildExperience(e.name, e.period, e.description),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+                  ],
+                ),
               ),
-
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
-
-              buildExperience(
-                'Liderança da equipe de mídia',
-
-                'Luz do Mundo Church - de novembro de 2021 até fevereiro de 2023',
-
-                'Fui responsável pela distribuição de tarefas dentro da equipe, desenvolvimento e manutenção do website, gerenciamento de canal no YouTube e administração de mídias sociais, garantindo a criação de conteúdo estratégico e a otimização da presença digital da marca.',
-              ),
-
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
             ],
           ),
         ],

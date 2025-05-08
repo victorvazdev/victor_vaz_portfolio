@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
 import 'package:victor_vaz_portfolio/ui/components/professional_experience.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ExperienceSection extends StatefulWidget {
+  final VictorVaz data;
   final GlobalKey sectionKey;
 
-  const ExperienceSection({super.key, required this.sectionKey});
+  const ExperienceSection({
+    super.key,
+    required this.sectionKey,
+    required this.data,
+  });
 
   @override
   State<ExperienceSection> createState() => _ExperienceSectionState();
@@ -31,7 +37,9 @@ class _ExperienceSectionState extends State<ExperienceSection> {
         curve: Curves.easeIn,
         child: Container(
           key: widget.sectionKey,
-          child: const ProfessionalExperience(),
+          child: ProfessionalExperience(
+            experienceData: widget.data.experiences,
+          ),
         ),
       ),
     );

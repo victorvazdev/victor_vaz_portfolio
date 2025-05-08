@@ -35,7 +35,6 @@ class VictorVazDataService implements DataService {
 
       return data;
     } catch (e) {
-      print('Error: $e');
       throw Exception('Error on fetching: $e');
     }
   }
