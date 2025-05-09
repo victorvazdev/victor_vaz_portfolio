@@ -72,6 +72,14 @@ class _ContactFormState extends State<ContactForm> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                labelStyle: TextStyle(color: Colors.white60),
+                floatingLabelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
               onChanged: (value) => name = value,
               validator: (value) {
@@ -89,6 +97,14 @@ class _ContactFormState extends State<ContactForm> {
                 labelText: 'E-mail',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                labelStyle: TextStyle(color: Colors.white60),
+                floatingLabelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               onChanged: (value) => email = value,
@@ -117,6 +133,14 @@ class _ContactFormState extends State<ContactForm> {
                 labelText: 'Mensagem',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                labelStyle: TextStyle(color: Colors.white60),
+                floatingLabelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               onChanged: (value) => message = value,
