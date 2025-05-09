@@ -9,6 +9,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 const functions = require("firebase-functions");
 const fetch = require("node-fetch");
 require("dotenv").config();
@@ -42,6 +43,38 @@ app.get("/portfolio", async (req, res) => {
     return res.status(500).json({
       error: "Server error: " + error.message,
     });
+  }
+});
+
+app.post("/send-email", async (req, res) => {
+  const {name, email, message} = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({error: "Missing required fields"});
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: parseInt(process.env.EMAIL_PORT),
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"${name}" <${email}>`,
+      to: process.env.EMAIL_USER,
+      subject: "New Contact Message",
+      text: message,
+      html: `<p><strong>From:</strong> ${name} (${email})</p><p>${message}</p>`,
+    });
+
+    return res.json({sucess: true, message: "Email sent succesfully"});
+  } catch (error) {
+    return res.status(500).json({error: "Email failed: " + error.message});
   }
 });
 
