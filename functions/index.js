@@ -65,7 +65,7 @@ app.post("/send-email", async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
+      from: "no-reply@victorvaz.dev",
       to: process.env.EMAIL_USER,
       subject: "New Contact Message",
       text: message,

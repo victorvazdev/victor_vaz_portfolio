@@ -142,9 +142,9 @@ class Themes {
         ) {
           if (states.contains(WidgetState.hovered) ||
               states.contains(WidgetState.pressed)) {
-            return Colors.white12;
+            return Colors.white24;
           }
-          return Constants.darkCardBackground;
+          return Colors.white12;
         }),
         foregroundColor: WidgetStateColor.resolveWith((
           Set<WidgetState> states,

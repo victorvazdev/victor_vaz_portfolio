@@ -23,7 +23,6 @@ class ContactList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -32,21 +31,6 @@ class ContactList extends StatelessWidget {
         crossAxisAlignment:
             width > 700 ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
-          SelectableText(
-            'Contato',
-            style:
-                width > 700
-                    ? TextStyle(
-                      color: Theme.of(context).textTheme.titleSmall!.color,
-                      fontSize: 28,
-                      fontWeight:
-                          Theme.of(context).textTheme.titleSmall!.fontWeight,
-                    )
-                    : Theme.of(context).textTheme.titleSmall,
-          ),
-
-          SizedBox(height: height * 0.03),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child:

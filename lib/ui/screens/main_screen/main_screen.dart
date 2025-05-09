@@ -14,42 +14,43 @@ import 'package:victor_vaz_portfolio/ui/screens/main_screen/footer_section.dart'
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/header_section.dart';
 import 'package:victor_vaz_portfolio/ui/screens/main_screen/projects_section.dart';
 
-class MainScreen extends StatefulWidget {
+// ignore: must_be_immutable
+class MainScreen extends StatelessWidget {
   final ValueNotifier<ThemeMode> themeNotifier;
 
-  const MainScreen({super.key, required this.themeNotifier});
+  MainScreen({super.key, required this.themeNotifier});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   final ScrollController _scrollController = ScrollController();
 
   final GlobalKey _headerKey = GlobalKey();
+
   final GlobalKey _projectsKey = GlobalKey();
+
   final GlobalKey _experienceKey = GlobalKey();
+
   final GlobalKey _academicKey = GlobalKey();
+
   final GlobalKey _certificationsKey = GlobalKey();
+
   final GlobalKey _contactKey = GlobalKey();
 
   final VictorVazDataViewModel victorVazDataViewModel =
       VictorVazDataViewModel();
 
-  VictorVaz? _data;
+  VictorVaz _data = VictorVaz.empty();
 
   bool wasTheDataRequested = false;
 
   void _cycleTheme(ThemeMode value) {
     switch (value) {
       case ThemeMode.system:
-        widget.themeNotifier.value = ThemeMode.system;
+        themeNotifier.value = ThemeMode.system;
         break;
       case ThemeMode.light:
-        widget.themeNotifier.value = ThemeMode.light;
+        themeNotifier.value = ThemeMode.light;
         break;
       case ThemeMode.dark:
-        widget.themeNotifier.value = ThemeMode.dark;
+        themeNotifier.value = ThemeMode.dark;
         break;
     }
   }
@@ -84,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
       _data = await victorVazDataViewModel.getData();
       wasTheDataRequested = true;
     }
-    return _data!;
+    return _data;
   }
 
   @override
@@ -168,7 +169,11 @@ class _MainScreenState extends State<MainScreen> {
             case ConnectionState.none:
             case ConnectionState.waiting:
             case ConnectionState.active:
-              return Center(child: CircularProgressIndicator());
+              return Center(
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).primaryColor,
+                ),
+              );
             case ConnectionState.done:
               if (snapshot.data == null) {
                 return Center(child: Text('Nenhum dado recebido.'));
