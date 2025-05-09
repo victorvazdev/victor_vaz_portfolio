@@ -8,6 +8,7 @@ class VictorVazDataViewModel {
   VictorVaz get data => _data;
 
   Future<VictorVaz> getData() async {
+    print('Requisição feita');
     final DataService dataService = VictorVazDataService();
     _data = await dataService.getAll();
     return _data;

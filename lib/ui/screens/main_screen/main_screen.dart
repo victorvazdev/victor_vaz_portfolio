@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:victor_vaz_portfolio/app/models/victor_vaz.dart';
 import 'package:victor_vaz_portfolio/app/view_models/victor_vaz_data_view_model.dart';
 
 // Widgets
@@ -34,6 +35,10 @@ class _MainScreenState extends State<MainScreen> {
 
   final VictorVazDataViewModel victorVazDataViewModel =
       VictorVazDataViewModel();
+
+  VictorVaz? _data;
+
+  bool wasTheDataRequested = false;
 
   void _cycleTheme(ThemeMode value) {
     switch (value) {
@@ -72,6 +77,14 @@ class _MainScreenState extends State<MainScreen> {
         _scrollTo(_contactKey);
         break;
     }
+  }
+
+  Future<VictorVaz> requestData() async {
+    if (!wasTheDataRequested) {
+      _data = await victorVazDataViewModel.getData();
+      wasTheDataRequested = true;
+    }
+    return _data!;
   }
 
   @override
@@ -149,7 +162,7 @@ class _MainScreenState extends State<MainScreen> {
                 ],
       ),
       body: FutureBuilder(
-        future: victorVazDataViewModel.getData(),
+        future: requestData(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
