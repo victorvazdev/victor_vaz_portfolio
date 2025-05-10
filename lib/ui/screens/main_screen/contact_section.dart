@@ -73,30 +73,67 @@ class _ContactSectionState extends State<ContactSection> {
                 ],
               ),
 
-              ContactForm(),
-              width > 700 ? SizedBox(height: 16.0) : SizedBox.shrink(),
-              ContactList(
-                email: widget.data.email,
-                phone: widget.data.phone,
-                linkedin: Contact(
-                  text: widget.data.linkedin,
-                  asset: 'assets/images/linkedin-logo.svg',
-                  link: 'https://www.linkedin.com/in/${widget.data.linkedin}/',
-                  semanticLabel: 'Nome de usuário no LinkedIn',
-                ),
-                github: Contact(
-                  text: widget.data.github,
-                  asset: 'assets/images/github-logo.svg',
-                  link: 'https://github.com/${widget.data.github}',
-                  semanticLabel: 'Nome de usuário no GitHub',
-                ),
-                local: Contact(
-                  text: widget.data.location,
-                  link: 'https://maps.app.goo.gl/xTcMRQEX93AVQpa5A',
-                  icon: Icons.place,
-                  semanticLabel: 'Local de habitação',
-                ),
-              ),
+              width > 700
+                  ? Row(
+                    children: [
+                      SizedBox(width: width * 0.4, child: ContactForm()),
+                      SizedBox(
+                        width: width * 0.5,
+                        child: ContactList(
+                          email: widget.data.email,
+                          phone: widget.data.phone,
+                          linkedin: Contact(
+                            text: widget.data.linkedin,
+                            asset: 'assets/images/linkedin-logo.svg',
+                            link:
+                                'https://www.linkedin.com/in/${widget.data.linkedin}/',
+                            semanticLabel: 'Nome de usuário no LinkedIn',
+                          ),
+                          github: Contact(
+                            text: widget.data.github,
+                            asset: 'assets/images/github-logo.svg',
+                            link: 'https://github.com/${widget.data.github}',
+                            semanticLabel: 'Nome de usuário no GitHub',
+                          ),
+                          local: Contact(
+                            text: widget.data.location,
+                            link: 'https://maps.app.goo.gl/xTcMRQEX93AVQpa5A',
+                            icon: Icons.place,
+                            semanticLabel: 'Local de habitação',
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                  : Column(
+                    children: [
+                      ContactForm(),
+                      width > 750 ? SizedBox(height: 16.0) : SizedBox.shrink(),
+                      ContactList(
+                        email: widget.data.email,
+                        phone: widget.data.phone,
+                        linkedin: Contact(
+                          text: widget.data.linkedin,
+                          asset: 'assets/images/linkedin-logo.svg',
+                          link:
+                              'https://www.linkedin.com/in/${widget.data.linkedin}/',
+                          semanticLabel: 'Nome de usuário no LinkedIn',
+                        ),
+                        github: Contact(
+                          text: widget.data.github,
+                          asset: 'assets/images/github-logo.svg',
+                          link: 'https://github.com/${widget.data.github}',
+                          semanticLabel: 'Nome de usuário no GitHub',
+                        ),
+                        local: Contact(
+                          text: widget.data.location,
+                          link: 'https://maps.app.goo.gl/xTcMRQEX93AVQpa5A',
+                          icon: Icons.place,
+                          semanticLabel: 'Local de habitação',
+                        ),
+                      ),
+                    ],
+                  ),
             ],
           ),
         ),
