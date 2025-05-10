@@ -142,9 +142,7 @@ class _ContactFormState extends State<ContactForm> {
                       ? SizedBox(
                         height: 16.0,
                         width: 16.0,
-                        child: CircularProgressIndicator(
-                          color: Theme.of(context).primaryColor,
-                        ),
+                        child: CircularProgressIndicator(color: Colors.white),
                       )
                       : const Text('Enviar'),
             ),
