@@ -37,7 +37,9 @@ class CertificationsList extends StatelessWidget {
             spacing: 8.0,
             runSpacing: 8.0,
             children: [
-              ...certificationsData.map((e) => CertificationCard(name: e.name)),
+              ...certificationsData.map(
+                (e) => CertificationCard(name: e.name, url: e.url),
+              ),
             ],
           ),
         ],
