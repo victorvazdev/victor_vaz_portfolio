@@ -82,6 +82,16 @@ class Themes {
         textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Constants.lightPrimaryColor),
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      labelStyle: TextStyle(color: Colors.black54),
+      floatingLabelStyle: TextStyle(color: Constants.lightPrimaryColor),
+      alignLabelWithHint: true,
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -160,6 +170,16 @@ class Themes {
         ),
         textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      labelStyle: TextStyle(color: Colors.white60),
+      floatingLabelStyle: TextStyle(color: Colors.white),
+      alignLabelWithHint: true,
     ),
   );
 }

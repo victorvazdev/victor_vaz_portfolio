@@ -67,20 +67,7 @@ class _ContactFormState extends State<ContactForm> {
             SizedBox(height: 32.0),
             TextFormField(
               controller: nameController,
-              decoration: InputDecoration(
-                labelText: 'Nome',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                labelStyle: TextStyle(color: Colors.white60),
-                floatingLabelStyle: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
+              decoration: InputDecoration(labelText: 'Nome'),
               onChanged: (value) => name = value,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -93,20 +80,7 @@ class _ContactFormState extends State<ContactForm> {
             SizedBox(height: 16.0),
             TextFormField(
               controller: emailController,
-              decoration: InputDecoration(
-                labelText: 'E-mail',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                labelStyle: TextStyle(color: Colors.white60),
-                floatingLabelStyle: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
+              decoration: InputDecoration(labelText: 'E-mail'),
               onChanged: (value) => email = value,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -129,20 +103,7 @@ class _ContactFormState extends State<ContactForm> {
               controller: messageController,
               maxLines: null,
               textAlignVertical: TextAlignVertical.top,
-              decoration: InputDecoration(
-                labelText: 'Mensagem',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                labelStyle: TextStyle(color: Colors.white60),
-                floatingLabelStyle: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
+              decoration: InputDecoration(labelText: 'Mensagem'),
               onChanged: (value) => message = value,
               validator: (value) {
                 if (value == null || value.isEmpty) {
