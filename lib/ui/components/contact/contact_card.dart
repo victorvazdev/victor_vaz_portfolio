@@ -37,9 +37,15 @@ class ContactCard extends StatelessWidget {
           const SizedBox(width: 8),
           InkWell(
             onTap: () => launchUrlHelper(context, Uri.parse(contact.link)),
-            child: Text(
-              contact.text,
-              style: Theme.of(context).textTheme.bodyMedium,
+            child: Row(
+              children: [
+                Text(
+                  contact.text,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                SizedBox(width: 6.0),
+                Icon(Icons.open_in_new, size: 16.0),
+              ],
             ),
           ),
         ],

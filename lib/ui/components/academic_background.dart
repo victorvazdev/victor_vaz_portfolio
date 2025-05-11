@@ -36,39 +36,79 @@ class AcademicBackground extends StatelessWidget {
               color: Theme.of(context).iconTheme.color,
             ),
             const SizedBox(width: 16),
-            Column(
-              mainAxisAlignment:
-                  width > 700
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SelectableText(
-                  name,
-                  style:
-                      width > 700
-                          ? TextStyle(
-                            color:
-                                Theme.of(context).textTheme.titleSmall!.color,
-                            fontSize: 24,
-                            fontWeight:
-                                Theme.of(
-                                  context,
-                                ).textTheme.titleSmall!.fontWeight,
-                          )
-                          : Theme.of(context).textTheme.titleSmall,
+            width > 700
+                ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SelectableText(
+                      name,
+                      style:
+                          width > 700
+                              ? TextStyle(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.titleSmall!.color,
+                                fontSize: 24,
+                                fontWeight:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.titleSmall!.fontWeight,
+                              )
+                              : Theme.of(context).textTheme.titleSmall,
+                    ),
+                    SelectableText(
+                      period,
+                      style:
+                          width > 700
+                              ? TextStyle(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodySmall!.color,
+                              )
+                              : Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                )
+                : Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SelectableText(
+                        name,
+                        style:
+                            width > 700
+                                ? TextStyle(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.titleSmall!.color,
+                                  fontSize: 24,
+                                  fontWeight:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.titleSmall!.fontWeight,
+                                )
+                                : Theme.of(context).textTheme.titleSmall,
+                      ),
+                      SelectableText(
+                        period,
+                        style:
+                            width > 700
+                                ? TextStyle(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodySmall!.color,
+                                )
+                                : Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
                 ),
-                SelectableText(
-                  period,
-                  style:
-                      width > 700
-                          ? TextStyle(
-                            color: Theme.of(context).textTheme.bodySmall!.color,
-                          )
-                          : Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
-            ),
           ],
         ),
       );

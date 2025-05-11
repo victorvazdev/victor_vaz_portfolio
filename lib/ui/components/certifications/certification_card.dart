@@ -50,6 +50,7 @@ class _CertificationCardState extends State<CertificationCard> {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
+                    Icon(Icons.open_in_new),
                   ],
                 ),
               ],

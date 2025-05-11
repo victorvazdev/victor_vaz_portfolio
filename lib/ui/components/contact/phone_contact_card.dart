@@ -58,7 +58,7 @@ class _PhoneContactCardState extends State<PhoneContactCard> {
                       iconSize: 16,
                       onPressed: _toggleVisibility,
                       icon: Icon(
-                        Icons.remove_red_eye,
+                        Icons.visibility_off,
                         color: Theme.of(context).iconTheme.color,
                       ),
                     ),
@@ -82,7 +82,7 @@ class _PhoneContactCardState extends State<PhoneContactCard> {
                         iconSize: 16,
                         onPressed: _toggleVisibility,
                         icon: Icon(
-                          Icons.remove_red_eye_outlined,
+                          Icons.visibility,
                           color: Theme.of(context).iconTheme.color,
                         ),
                       ),

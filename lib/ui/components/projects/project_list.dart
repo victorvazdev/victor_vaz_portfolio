@@ -34,12 +34,10 @@ class _ProjectListState extends State<ProjectList> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return Column(
       children: [
         SizedBox(
-          height: width > 1000 ? 740 : 815,
+          height: 500,
           child: Row(
             children: [
               IconButton(

@@ -13,9 +13,6 @@ class ProjectCard extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      margin:
-          width > 1000 ? const EdgeInsets.symmetric(horizontal: 48.0) : null,
-      padding: EdgeInsets.all(width > 700 ? 48.0 : 16),
       decoration: BoxDecoration(
         color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(6),
@@ -33,89 +30,134 @@ class ProjectCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(project.image, width: 200),
-          SizedBox(height: 5),
-          width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
           SelectableText(
             project.name,
-            style:
-                width > 700
-                    ? TextStyle(
-                      color: Theme.of(context).textTheme.titleSmall!.color,
-                      fontSize: 24,
-                      fontWeight:
-                          Theme.of(context).textTheme.titleSmall!.fontWeight,
-                    )
-                    : Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
-          SizedBox(height: 5),
-          width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
-          SelectableText(
-            project.description,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          SizedBox(height: 5),
-          width > 700 ? SizedBox(height: 16) : SizedBox.shrink(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              project.url == null
-                  ? SizedBox.shrink()
-                  : ElevatedButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        builder:
-                            (context) => Dialog(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Container(
-                                padding: const EdgeInsets.all(16.0),
-                                width: width > 600 ? 400 : 270,
-                                height: 701,
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: IFrameWebView(url: project.url!),
+          SizedBox(height: 16.0),
+          Image.asset(project.image, height: 300),
+          SizedBox(height: 16.0),
+          width > 700
+              ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  project.url == null
+                      ? SizedBox.shrink()
+                      : ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder:
+                                (context) => Dialog(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(16.0),
+                                    width: width > 600 ? 400 : 270,
+                                    height: 701,
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                          child: IFrameWebView(
+                                            url: project.url!,
+                                          ),
+                                        ),
+                                        SizedBox(height: 16.0),
+                                        Center(
+                                          child: ElevatedButton(
+                                            onPressed:
+                                                () => Navigator.pop(context),
+                                            child: Text('Fechar'),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    SizedBox(height: 16.0),
-                                    Center(
-                                      child: ElevatedButton(
-                                        onPressed: () => Navigator.pop(context),
-                                        child: Text('Fechar'),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                      );
-                    },
-                    child: Text('Executar App'),
-                  ),
-              SizedBox(width: 9),
-              width >= 750
-                  ? ElevatedButton(
+                          );
+                        },
+                        child: Text('Executar App'),
+                      ),
+                  SizedBox(width: 9),
+                  ElevatedButton(
                     onPressed:
                         () =>
                             launchUrlHelper(context, Uri.parse(project.video)),
-                    child: Text('Ver Vídeo'),
-                  )
-                  : SizedBox.shrink(),
-            ],
-          ),
-          width < 750
-              ? Container(
-                padding: EdgeInsets.only(top: 9.0),
-                child: ElevatedButton(
-                  onPressed:
-                      () => launchUrlHelper(context, Uri.parse(project.video)),
-                  child: Text('Ver Vídeo'),
-                ),
+                    child: Row(
+                      children: [
+                        Text('Ver Vídeo'),
+                        SizedBox(width: 6.0),
+                        Icon(Icons.open_in_new),
+                      ],
+                    ),
+                  ),
+                ],
               )
-              : SizedBox.shrink(),
+              : Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    project.url == null
+                        ? SizedBox.shrink()
+                        : ElevatedButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: true,
+                              builder:
+                                  (context) => Dialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
+                                    child: Container(
+                                      padding: const EdgeInsets.all(16.0),
+                                      width: 400,
+                                      height: 701,
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                            child: IFrameWebView(
+                                              url: project.url!,
+                                            ),
+                                          ),
+                                          SizedBox(height: 16.0),
+                                          Center(
+                                            child: ElevatedButton(
+                                              onPressed:
+                                                  () => Navigator.pop(context),
+                                              child: Text('Fechar'),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                            );
+                          },
+                          child: Text('Executar App'),
+                        ),
+                    SizedBox(height: 9),
+                    ElevatedButton(
+                      onPressed:
+                          () => launchUrlHelper(
+                            context,
+                            Uri.parse(project.video),
+                          ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Ver Vídeo'),
+                          SizedBox(width: 6.0),
+                          Icon(Icons.open_in_new),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
         ],
       ),
     );
