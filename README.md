@@ -30,7 +30,8 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 - 📚 Formação Acadêmica
 - 💼 Experiências Profissionais
 - 📜 Certificações
-- 📬 Contato com revelação segura de e-mail e telefone
+- 📧 Formulário de Contato
+- 📬 Contatos com revelação segura de e-mail e telefone
 - 🌙 Alternância entre temas: Claro / Escuro / Sistema
 - 📱 Totalmente responsivo (mobile, tablet e desktop)
 
@@ -42,6 +43,10 @@ O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro
 - [visibility_detector](https://pub.dev/packages/visibility_detector)
 - SVG support via `flutter_svg`
 - [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator)
+- Firebase Functions
+- Node.js
+- Express
+- Nodemailder
 
 ## 🚀 Como Executar
 
@@ -75,9 +80,9 @@ victor_vaz_portfolio/
 │   ├── main.dart
 │   ├── app/
 │   │   ├── helpers/
+│   │   │   ├── constants.dart
 │   │   │   ├── format_phone_number.dart
-│   │   │   ├── launch_url_helper.dart
-│   │   │   └── victor_data.dart
+│   │   │   └── launch_url_helper.dart
 │   │   ├── models/
 │   │   │   ├── certification.dart
 │   │   │   ├── contact.dart
@@ -85,23 +90,23 @@ victor_vaz_portfolio/
 │   │   │   ├── graduation.dart
 │   │   │   ├── project.dart
 │   │   │   └── victor_vaz.dart
+│   │   ├── services/
+│   │   │   ├── contact_service.dart
+│   │   │   ├── data_service.dart
+│   │   │   ├── form_service.dart
+│   │   │   └── victor_vaz_data_service.dart
+│   │   ├── view_models/
+│   │   │   ├── contact_view_model.dart
+│   │   │   └── victor_vaz_data_view_model.dart
 │   ├── ui/
 │   │   ├── components/
 │   │   │   ├── academic_background.dart
 │   │   │   ├── biography.dart
-│   │   │   ├── certification_card.dart
-│   │   │   ├── certification_list.dart
 │   │   │   ├── hover_elevated_button.dart
 │   │   │   ├── hover_title.dart
-│   │   │   ├── i_frame_web_view.dart
-│   │   │   ├── identification.dart
-│   │   │   ├── professional_experience.dart
-│   │   │   ├── project_card.dart
-│   │   │   ├── project_list.dart
-│   │   │   ├── theme_selector.dart
-│   │   │   └── contact/
+│   │   │   └── ...
 │   │   ├── screens/
-│   │   │   └── main_screen/
+│   │   │   └── ...
 │   │   └── styles/
 │   │       ├── constants.dart
 │   │       └── themes.dart
@@ -109,11 +114,34 @@ victor_vaz_portfolio/
 │   ├── favicon.png
 │   ├── index.html
 │   ├── manifest.json
-│   └── icons/
-│       ├── Icon-192.png
-│       ├── Icon-512.png
-│       ├── Icon-maskable-192.png
-│       └── Icon-maskable-512.png
+│   ├── icons/
+│   │   ├── Icon-192.png
+│   │   ├── Icon-512.png
+│   │   ├── Icon-maskable-192.png
+│   │   └── Icon-maskable-512.png
+│   ├── canvaskit/
+│   │   ├── canvaskit.js
+│   │   ├── canvaskit.js.symbols
+│   │   ├── canvaskit.wasm
+│   │   ├── skwasm_st.js
+│   │   ├── skwasm_st.js.symbols
+│   │   ├── skwasm_st.wasm
+│   │   ├── skwasm.js
+│   │   ├── skwasm.js.symbols
+│   │   ├── skwasm.wasm
+│   │   └── chromium/
+│   ├── assets/
+│   │   ├── AssetManifest.bin
+│   │   ├── AssetManifest.bin.json
+│   │   ├── AssetManifest.json
+│   │   ├── FontManifest.json
+│   │   ├── NOTICES
+│   │   ├── assets/
+│   │   ├── fonts/
+│   │   └── shaders/
+functions/
+├── index.js
+├── package.json
 ```
 
 ## 👤 Autor
