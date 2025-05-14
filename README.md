@@ -20,7 +20,7 @@ Visão no celular:
 
 ## 💡 Sobre o Projeto
 
-O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro**, responsividade, animações de transição e seções detalhadas com informações profissionais, acadêmicas e certificações.
+O portfólio foi desenvolvido em **Flutter** com suporte a **modo claro e escuro**, responsividade, animações de transição, formulário de contato e seções detalhadas com informações profissionais, acadêmicas e certificações.
 
 ## 🧩 Funcionalidades
 
