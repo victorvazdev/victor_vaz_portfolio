@@ -51,6 +51,7 @@ class _EmailContactCardState extends State<EmailContactCard> {
                 children: [
                   InkWell(
                     onTap: _launchEmail,
+                    borderRadius: BorderRadius.circular(3.0),
                     child: Text(
                       'contato@victorvaz.dev.br',
                       style: Theme.of(context).textTheme.bodyMedium,
@@ -74,6 +75,7 @@ class _EmailContactCardState extends State<EmailContactCard> {
               )
               : InkWell(
                 onTap: _toggleVisibility,
+                borderRadius: BorderRadius.circular(3.0),
                 child: Row(
                   children: [
                     Text(

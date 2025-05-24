@@ -81,6 +81,7 @@ class _ContactFormState extends State<ContactForm> {
             TextFormField(
               controller: emailController,
               decoration: InputDecoration(labelText: 'E-mail'),
+              keyboardType: TextInputType.emailAddress,
               onChanged: (value) => email = value,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -101,6 +102,7 @@ class _ContactFormState extends State<ContactForm> {
             SizedBox(height: 16.0),
             TextFormField(
               controller: messageController,
+              minLines: 5,
               maxLines: null,
               textAlignVertical: TextAlignVertical.top,
               decoration: InputDecoration(labelText: 'Mensagem'),

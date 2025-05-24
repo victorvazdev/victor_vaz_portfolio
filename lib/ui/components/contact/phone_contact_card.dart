@@ -44,6 +44,7 @@ class _PhoneContactCardState extends State<PhoneContactCard> {
                 children: [
                   InkWell(
                     onTap: () => _launchPhone(context),
+                    borderRadius: BorderRadius.circular(3.0),
                     child: Text(
                       formatPhoneNumber(widget.phone),
                       style: Theme.of(context).textTheme.bodyMedium,
@@ -67,6 +68,7 @@ class _PhoneContactCardState extends State<PhoneContactCard> {
               )
               : InkWell(
                 onTap: _toggleVisibility,
+                borderRadius: BorderRadius.circular(3.0),
                 child: Row(
                   children: [
                     Text(

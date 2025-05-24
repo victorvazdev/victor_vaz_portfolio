@@ -9,6 +9,7 @@ class ThemeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton<ThemeMode>(
       tooltip: 'Selecionar tema',
+      borderRadius: BorderRadius.circular(3.0),
       color: Theme.of(context).scaffoldBackgroundColor,
       child: SizedBox(
         width: 48,
