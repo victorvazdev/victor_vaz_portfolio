@@ -18,6 +18,7 @@ class _CertificationCardState extends State<CertificationCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => launchUrlHelper(context, Uri.parse(widget.url)),
+      borderRadius: BorderRadius.circular(8.0),
       child: MouseRegion(
         onEnter: (_) => setState(() => _isHovered = true),
         onExit: (_) => setState(() => _isHovered = false),
