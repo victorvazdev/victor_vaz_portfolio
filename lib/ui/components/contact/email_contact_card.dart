@@ -53,7 +53,7 @@ class _EmailContactCardState extends State<EmailContactCard> {
                     onTap: _launchEmail,
                     borderRadius: BorderRadius.circular(3.0),
                     child: Text(
-                      'contato@victorvaz.dev.br',
+                      widget.email,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
