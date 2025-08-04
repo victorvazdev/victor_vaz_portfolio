@@ -57,7 +57,7 @@ app.post("/send-email", async (req, res) => {
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT),
-      secure: false,
+      secure: process.env.EMAIL_SECURE === "true",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -65,7 +65,7 @@ app.post("/send-email", async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: "no-reply@victorvaz.com",
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "New Contact Message",
       text: message,
