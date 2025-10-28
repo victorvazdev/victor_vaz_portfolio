@@ -22,7 +22,6 @@ app.get("/portfolio", async (req, res) => {
     const response = await fetch(process.env.GIST_URL, {
       headers: {
         "Accept": "application/vnd.github+json",
-        "Authorization": `Bearer ${process.env.GIST_API_KEY}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
